@@ -1,0 +1,11 @@
+{
+	"modules": {
+		"parse": {
+			"version": "2.0",
+			"config": {
+				"applicationId": "aMw5LWWvHxsnqdl6c2cjmayf0wYHZoaa5vbeKKd3", 
+				"clientKey": "6xdWM2X844vs2l8t7EVUvCAYEVXhCNvClD1GaaFR"
+			}
+		}
+	}
+}

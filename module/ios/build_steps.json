@@ -1,0 +1,16 @@
+[
+	{ "do": { "add_ios_system_framework": "AudioToolbox.framework" } },
+	{ "do": { "add_ios_system_framework": "Accounts.framework" } },
+	{ "do": { "add_ios_system_framework": "AdSupport.framework" } },
+	{ "do": { "add_ios_system_framework": "CFNetwork.framework" } },
+	{ "do": { "add_ios_system_framework": "CoreGraphics.framework" } },
+	{ "do": { "add_ios_system_framework": "CoreLocation.framework" } },
+	{ "do": { "add_ios_system_framework": "libsqlite3.dylib" } },
+	{ "do": { "add_ios_system_framework": "libz.1.1.3.dylib" } },
+	{ "do": { "add_ios_system_framework": "MobileCoreServices.framework" } },
+	{ "do": { "add_ios_system_framework": "QuartzCore.framework" } },
+	{ "do": { "add_ios_system_framework": "Security.framework" } },
+	{ "do": { "add_ios_system_framework": "Social.framework" } },
+	{ "do": { "add_ios_system_framework": "StoreKit.framework" } },
+	{ "do": { "add_ios_system_framework": "SystemConfiguration.framework" } }
+]

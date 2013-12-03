@@ -1,0 +1,16 @@
+{
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"applicationId": {
+			"required": true,
+			"description": "Application ID from parse.com",
+			"type": "string"
+		},
+		"clientKey": {
+			"required": true,
+			"description": "Client key from parse.com",
+			"type": "string"
+		}
+	}
+}

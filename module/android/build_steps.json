@@ -1,0 +1,54 @@
+[
+	{
+		"do": {
+			"android_add_to_application_manifest": {
+				"element": {
+					"tag": "service",
+					"attributes": {
+						"android:name": "com.parse.PushService"
+					}
+				}
+			}
+		}
+	},
+	{
+		"do": {
+			"android_add_to_application_manifest": {
+				"element": {
+					"tag": "receiver",
+					"attributes": {
+						"android:name": "com.parse.ParseBroadcastReceiver"
+					},
+					"children": [{
+						"tag": "intent-filter",
+						"children": [{
+							"tag": "action",
+							"attributes": {
+								"android:name": "android.intent.action.BOOT_COMPLETED"
+							}
+						}, {
+							"tag": "action",
+							"attributes": {
+								"android:name": "android.intent.action.USER_PRESENT"
+							}
+						}]
+					}]
+				}
+			}
+		}
+	},
+	{
+		"do": {
+			"android_add_permission": {
+				"permission": "android.permission.VIBRATE"
+			}
+		}
+	},
+	{
+		"do": {
+			"android_add_permission": {
+				"permission": "android.permission.RECEIVE_BOOT_COMPLETED"
+			}
+		}
+	}
+]
