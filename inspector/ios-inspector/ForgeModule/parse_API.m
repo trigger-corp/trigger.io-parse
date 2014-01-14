@@ -18,6 +18,18 @@
 	[task success:result];
 }
 
++ (void)getBadgeNumber:(ForgeTask *)task {
+	PFInstallation *installation = [PFInstallation currentInstallation];
+	[task success:[NSNumber numberWithInt:installation.badge]];
+}
+
++ (void)setBadgeNumber:(ForgeTask *)task number:(NSNumber*)number {
+	PFInstallation *installation = [PFInstallation currentInstallation];
+	installation.badge = [number integerValue];
+	[installation saveEventually];
+	[task success:nil];
+}
+
 + (void)push_subscribe:(ForgeTask*)task channel:(NSString*)channel {
 	[PFPush subscribeToChannelInBackground:channel block:^(BOOL succeeded, NSError *error) {
 		if (succeeded) {

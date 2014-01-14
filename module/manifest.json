@@ -1,7 +1,8 @@
 {
-    "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.", 
-    "min_platform_version": "v2.1.0", 
-    "name": "parse", 
-    "platform_version": "v2.1.0", 
-    "version": "2.0"
+	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
+	"min_platform_version": "v2.1.0",
+	"namespace": "parse",
+	"platform_version": "v2.1.0",
+	"version": "2.1",
+	"changes": "* Added new methods: `setBadgeNumber` and `getBadgeNumber`"
 }

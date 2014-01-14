@@ -111,6 +111,22 @@ following methods to manage which channels a user is subscribed to.
 To ease transition to v2 of Forge, ``forge.partners.parse`` is an alias of ``forge.parse``. However use of 
 the ``forge.partners.parse`` form is deprecated and should be changed to just ``forge.parse``.
 
+!method: forge.parse.setBadgeNumber(number, success, error)
+!param: number `integer` number
+!param: success `function()` callback to be invoked when no errors occur
+!description: Updates your badge count on the Parse server and sets or removes a badge for your app's icon on the iOS home screen.
+!platforms: iOS
+!param: error `function(content)` called with details of any error which may occur
+
+> ::Note:: If you pass in 0 as number, it will remove this badge. This is
+particularly useful if you want to clear a badge set by a push
+notification.
+
+!method: forge.parse.getBadgeNumber(success, error)
+!param: success `function(number)` called if the request is successful. ``number`` contains the current badge count for your app.
+!description: Returns the badge count registered for your app on the Parse server.
+!platforms: iOS
+!param: error `function(content)` called with details of any error which may occur
 
 ##Permissions
 

@@ -28,6 +28,12 @@ forge['parse'] = {
 	'installationInfo': function (success, error) {
 		forge.internal.call("parse.installationInfo", {}, success, error);
 	},
+	'getBadgeNumber': function (success, error) {
+		forge.internal.call("parse.getBadgeNumber", {}, success, error);
+	},
+	'setBadgeNumber': function (number, success, error) {
+		forge.internal.call("parse.setBadgeNumber", {number: number}, success, error);
+	},
 	'push': {
 		'subscribe': parse.push.subscribe,
 		'unsubscribe': parse.push.unsubscribe,

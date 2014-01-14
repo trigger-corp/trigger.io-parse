@@ -11,6 +11,24 @@ if (forge.is.mobile()) {
 		});
 	});
 
+	if (forge.is.ios()) {
+		asyncTest("setBadgeNumber", 1, function () {
+			forge.partners.parse.setBadgeNumber(42, function () {
+				forge.partners.parse.getBadgeNumber(function (badge) {
+					ok(badge === 42);
+					forge.partners.parse.setBadgeNumber(0);
+					start();
+				}, function () {
+					ok(false);
+					start();
+				});
+			}, function () {
+				ok(false);
+				start();
+			});
+		});
+	}
+
 	asyncTest("subscribe", 1, function () {
 		forge.parse.push.subscribe("test", function () {
 			ok(true);
