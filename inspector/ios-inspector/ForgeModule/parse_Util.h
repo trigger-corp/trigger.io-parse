@@ -12,6 +12,8 @@
 	
 }
 
++ (void)setLaunchOptions:(NSDictionary*) launchOptions;
++ (void)registerForNotifications:(NSString*)applicationId clientKey:(NSString*)clientKey;
 + (void)notifRecieved:(NSDictionary*)userInfo;
 + (void)triggerMessagePushedEvent;
 

@@ -13,14 +13,20 @@
 @implementation parse_EventListener
 
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	[Parse setApplicationId:[[[ForgeApp sharedApp] configForPlugin:@"parse"] objectForKey:@"applicationId"]
-				  clientKey:[[[ForgeApp sharedApp] configForPlugin:@"parse"] objectForKey:@"clientKey"]];
-	
-	[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
+	[parse_Util setLaunchOptions:launchOptions];
 
-	if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil) {
-		[parse_Util notifRecieved:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
-		[parse_Util triggerMessagePushedEvent];
+	Boolean delayRegistration = false;
+	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"parse"];
+	if ([config objectForKey:@"delayRegistration"] != nil) {
+		delayRegistration = [[config objectForKey:@"delayRegistration"] boolValue];
+	}
+
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	Boolean registeredForNotifications = [prefs boolForKey:@"parse_registeredForNotifications"];
+
+	if (!delayRegistration || registeredForNotifications) {
+		[parse_Util registerForNotifications:[config objectForKey:@"applicationId"]
+								   clientKey:[config objectForKey:@"clientKey"]];
 	}
 }
 
@@ -29,8 +35,17 @@
 	[PFPush storeDeviceToken:newDeviceToken];
 	// Subscribe to the global broadcast channel.
 	[PFPush subscribeToChannelInBackground:@""];
-	
+
+	// We can safely disable delayRegistration now
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	[prefs setBool:YES forKey:@"parse_registeredForNotifications"];
+
 	[ForgeLog i:@"Registering for parse push notifications, subscribing to default channel."];
+	[ForgeLog d:[NSString stringWithFormat:@"Device Token is: %@", newDeviceToken]];
+}
+
++ (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+	[ForgeLog e:[NSString stringWithFormat:@"Failed to register for remote notifications: %@", [error description]]];
 }
 
 + (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

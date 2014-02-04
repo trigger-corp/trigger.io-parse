@@ -13,11 +13,14 @@ Parse push notifications are integrated directly Forge. Other Parse features may
 
 ##Config options
 
-Application ID
+applicationId
 :   An application ID from [parse.com](https://parse.com/).
 
-Client Key
+clientKey
 :   A client key from [parse.com](https://parse.com/).
+
+delayRegistration
+:	Don't register for remote notifications at app startup (iOS Only)
 
 ##Concepts
 
@@ -103,7 +106,7 @@ following methods to manage which channels a user is subscribed to.
       forge.logging.info("subscribed to: "+JSON.stringify(channels));
     },
     function (err) {
-      forge.logging.error("couldn't retreive subscribed channels: "+
+      forge.logging.error("couldn't retrieve subscribed channels: "+
         JSON.stringify(err));
     });
 
@@ -127,6 +130,23 @@ notification.
 !description: Returns the badge count registered for your app on the Parse server.
 !platforms: iOS
 !param: error `function(content)` called with details of any error which may occur
+
+!method: forge.parse.registerForNotifications(success, error)
+!param: success Called if the request is successful. 
+!description: When used in conjunction with the config option `delayRegistration` this function can be used to delay the appearance of the notifications confirmation dialog until such time as this function is called rather than the first time the app is run.
+!platforms: iOS
+!param: error `function(content)` called with details of any error which may occur
+
+**Example**:
+
+	forge.parse.registerForNotifications(function () {
+	  // iOS users have now received the push notifications permission alert
+	}, function (err) {
+	  forge.logging.error("Failed to register for notifications: " +
+		JSON.stringify(err));
+	});
+
+> ::Important:: Instructions for resetting the push notifications permission alert on iOS can be found in ["Technical Note 2265"](https://developer.apple.com/library/ios/technotes/tn2265/_index.html)
 
 ##Permissions
 

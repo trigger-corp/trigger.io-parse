@@ -7,10 +7,25 @@
 //
 
 #import "parse_Util.h"
-	
+#import "Parse.h"
+
+static NSDictionary* launchOptions;
 static NSDictionary* lastNotif;
 
 @implementation parse_Util
+
++ (void)setLaunchOptions:(NSDictionary*) launchOptionsDict {
+	launchOptions = launchOptionsDict != NULL ? [NSDictionary dictionaryWithDictionary:launchOptionsDict] : NULL;
+}
+
++ (void)registerForNotifications:(NSString*)applicationId clientKey:(NSString*)clientKey {
+	[Parse setApplicationId:applicationId clientKey:clientKey];
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
+	if (launchOptions != NULL && [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil) {
+		[parse_Util notifRecieved:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+		[parse_Util triggerMessagePushedEvent];
+	}
+}
 
 + (void)notifRecieved:(NSDictionary*)userInfo {
 	NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:[userInfo objectForKey:@"aps"]];

@@ -65,4 +65,27 @@
 	[task success:nil];
 }
 
++ (void)registerForNotifications:(ForgeTask *)task {
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	Boolean registeredForNotifications = [prefs boolForKey:@"parse_registeredForNotifications"];
+	if (registeredForNotifications) {
+		[task success:nil];
+		return;
+	}
+
+	Boolean delayRegistration = false;
+	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"parse"];
+	if ([config objectForKey:@"delayRegistration"] != nil) {
+		delayRegistration = [[config objectForKey:@"delayRegistration"] boolValue];
+	}
+
+	if (delayRegistration) {
+		[parse_Util registerForNotifications:[config objectForKey:@"applicationId"]
+								   clientKey:[config objectForKey:@"clientKey"]];
+		[task success:nil];
+	} else {
+		[task error:@"You need to enable the 'delayRegistration' option in your app configuration to use this feature."];
+	}
+}
+
 @end

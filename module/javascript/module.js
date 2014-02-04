@@ -34,6 +34,9 @@ forge['parse'] = {
 	'setBadgeNumber': function (number, success, error) {
 		forge.internal.call("parse.setBadgeNumber", {number: number}, success, error);
 	},
+	'registerForNotifications': function (success, error) {
+		forge.internal.call("parse.registerForNotifications", {}, success, error);
+	},
 	'push': {
 		'subscribe': parse.push.subscribe,
 		'unsubscribe': parse.push.unsubscribe,

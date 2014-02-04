@@ -44,4 +44,9 @@ public class API {
 		}
 		task.success();
 	}
+
+	public static void registerForNotifications(final ForgeTask task) {
+		// shim for iOS-only functionality
+		task.success();
+	}
 }
