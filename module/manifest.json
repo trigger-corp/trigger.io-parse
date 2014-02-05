@@ -3,6 +3,6 @@
 	"min_platform_version": "v2.1.0",
 	"namespace": "parse",
 	"platform_version": "v2.1.0",
-	"version": "2.1",
-	"changes": "* Added new methods: `setBadgeNumber` and `getBadgeNumber`"
+	"version": "2.2",
+	"changes": "* Added new config key `delayRegistration` and method `registerForNotifications`"
 }
