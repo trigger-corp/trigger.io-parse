@@ -14,13 +14,7 @@
  for example, any user could read a particular object but only a particular
  set of users could write to that object.
  */
-@interface PFACL : NSObject <NSCopying> {
-@private
-    NSMutableDictionary *permissionsById;
-    BOOL shared;
-    PFUser *unresolvedUser;
-    void (^userResolutionListener)(id result, NSError *error);
-}
+@interface PFACL : NSObject <NSCopying>
 
 /** @name Creating an ACL */
 
@@ -152,7 +146,7 @@
  read it if a parent role has read access. The role must already be saved on
  the server and its data must have been fetched in order to use this method.
  
- @param roleName    The name of the role.
+ @param role The name of the role.
  @return YES if the role has read access. NO otherwise.
  */
 - (BOOL)getReadAccessForRole:(PFRole *)role;
@@ -173,7 +167,7 @@
  write it if a parent role has write access. The role must already be saved on
  the server and its data must have been fetched in order to use this method.
  
- @param roleName The name of the role.
+ @param role The name of the role.
  @return YES if the role has write access. NO otherwise.
  */
 - (BOOL)getWriteAccessForRole:(PFRole *)role;

@@ -1,7 +1,6 @@
 [
 	{ "do": { "add_ios_system_framework": "AudioToolbox.framework" } },
 	{ "do": { "add_ios_system_framework": "Accounts.framework" } },
-	{ "do": { "add_ios_system_framework": "AdSupport.framework" } },
 	{ "do": { "add_ios_system_framework": "CFNetwork.framework" } },
 	{ "do": { "add_ios_system_framework": "CoreGraphics.framework" } },
 	{ "do": { "add_ios_system_framework": "CoreLocation.framework" } },

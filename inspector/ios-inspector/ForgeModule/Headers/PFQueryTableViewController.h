@@ -34,7 +34,7 @@
 /*! @name Configuring Behavior */
 
 /// The class of the PFObject this table will use as a datasource
-@property (nonatomic, retain) NSString *className;
+@property (nonatomic, retain) NSString *parseClassName;
 
 /// The key to use to display for the cell text label. This won't apply if you override tableView:cellForRowAtIndexPath:object:
 @property (nonatomic, retain) NSString *textKey;

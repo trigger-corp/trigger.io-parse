@@ -9,18 +9,7 @@
 /*!
   A class that defines a query that is used to query for PFObjects.
  */
-@interface PFQuery : NSObject {
-    NSOperation *cancellationToken;
-    
-    NSString *className;
-    NSMutableDictionary *where;
-    NSMutableArray *include;
-    NSInteger limit;
-    NSInteger skip;
-    NSString *order;
-    PFCachePolicy cachePolicy;
-    BOOL trace;
-}
+@interface PFQuery : NSObject
 
 #pragma mark Query options
 
@@ -62,7 +51,7 @@
 /*!
   The class name to query for
  */
-@property (nonatomic, retain) NSString *className;
+@property (nonatomic, retain) NSString *parseClassName;
 
 /** @name Adding Basic Constraints */
 
@@ -73,6 +62,13 @@
  @param key The key to load child PFObjects for.
  */
 - (void)includeKey:(NSString *)key;
+
+/*!
+ Make the query restrict the fields of the returned PFObjects to include only the provided keys.
+ If this is called multiple times, then all of the keys specified in each of the calls will be included.
+ @param keys The keys to include in the result.
+ */
+- (void)selectKeys:(NSArray *)keys;
 
 /*!
  Add a constraint that requires a particular key exists.
@@ -144,7 +140,7 @@
 
 /*!
  Add a constraint to the query that requires a particular key's array contains every element of the provided array.
- @param arrayKey The key to be constrained.
+ @param key The key to be constrained.
  @param array The array of values to search for.
  */
 - (void)whereKey:(NSString *)key containsAllObjectsInArray:(NSArray *)array;

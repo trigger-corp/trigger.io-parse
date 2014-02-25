@@ -29,6 +29,10 @@ typedef enum {
  */
 - (id)initWithFields:(PFSignUpFields) fields;
 
+/// The view controller that will present this view.
+/// Used to lay out elements correctly when the presenting view controller has translucent elements.
+@property (nonatomic, retain) UIViewController *presentingViewController;
+
 /*! @name Customizing the Logo */
 
 /// The logo. By default, it is the Parse logo.

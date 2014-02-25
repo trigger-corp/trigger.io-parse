@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PFObject.h"
-#import "PFQuery.h"
+#import "PFSubclassing.h"
 
 /*!
  A Parse Framework Installation Object that is a local representation of an
@@ -31,8 +31,11 @@
  applications running on OS X, because they cannot receive push notifications.
  */
 
-@interface PFInstallation : PFObject {
-}
+@interface PFInstallation : PFObject<PFSubclassing>
+
+/*! The name of the Installation class in the REST API. This is a required
+ *  PFSubclassing method */
++ (NSString *)parseClassName;
 
 /** @name Targeting Installations */
 
@@ -53,7 +56,7 @@
  @result Returns a PFInstallation that represents the currently-running
  installation.
  */
-+ (PFInstallation *)currentInstallation;
++ (instancetype)currentInstallation;
 
 /*!
  Sets the device token string property from an NSData-encoded token.

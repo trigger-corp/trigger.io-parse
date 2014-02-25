@@ -7,6 +7,7 @@
 //
 
 #import "PFObject.h"
+#import "PFSubclassing.h"
 #import "PFFile.h"
 
 /*!
@@ -17,7 +18,11 @@
 
  This class is currently for iOS only.
  */
-@interface PFProduct : PFObject
+@interface PFProduct : PFObject<PFSubclassing>
+
+/*! The name of the Product class in the REST API. This is a required
+ *  PFSubclassing method */
++ (NSString *)parseClassName;
 
 /** @name Querying for Products */
 /*!

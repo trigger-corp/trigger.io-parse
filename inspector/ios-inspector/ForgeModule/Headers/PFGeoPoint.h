@@ -18,10 +18,7 @@
  Currently, object classes may only have one key associated with a GeoPoint type.
  */
 
-@interface PFGeoPoint : NSObject<NSCopying> {
-    double latitude;
-    double longitude;
-}
+@interface PFGeoPoint : NSObject<NSCopying>
 
 /** @name Creating a PFGeoPoint */
 /*!

@@ -4,10 +4,7 @@
 #import <Foundation/Foundation.h>
 #import "PFConstants.h"
 #import "PFObject.h"
-
-#if PARSE_IOS_ONLY
-#import "PF_Facebook.h"
-#endif
+#import "PFSubclassing.h"
 
 @class PFQuery;
 
@@ -20,8 +17,11 @@ A Parse Framework User Object that is a local representation of a user persisted
  utilities for each social network. See PFFacebookUtils and PFTwitterUtils for more information.
  */
 
+@interface PFUser : PFObject<PFSubclassing>
 
-@interface PFUser : PFObject
+/*! The name of the PFUser class in the REST API. This is a required
+ *  PFSubclassing method */
++ (NSString *)parseClassName;
 
 /** @name Accessing the Current User */
 
@@ -29,7 +29,7 @@ A Parse Framework User Object that is a local representation of a user persisted
  Gets the currently logged in user from disk and returns an instance of it.
  @result Returns a PFUser that is the currently logged in user. If there is none, returns nil.
  */
-+ (PFUser *)currentUser;
++ (instancetype)currentUser;
 
 /// The session token for the PFUser. This is set by the server upon successful authentication.
 @property (nonatomic, retain) NSString *sessionToken;
@@ -109,31 +109,31 @@ A Parse Framework User Object that is a local representation of a user persisted
 /*!
  Makes a request to login a user with specified credentials. Returns an instance
  of the successfully logged in PFUser. This will also cache the user locally so 
- that calls to userFromCurrentUser will use the latest logged in user.
+ that calls to currentUser will use the latest logged in user.
  @param username The username of the user.
  @param password The password of the user.
  @result Returns an instance of the PFUser on success. If login failed for either wrong password or wrong username, returns nil.
  */
-+ (PFUser *)logInWithUsername:(NSString *)username
-                     password:(NSString *)password;
++ (instancetype)logInWithUsername:(NSString *)username
+                         password:(NSString *)password;
 
 /*!
  Makes a request to login a user with specified credentials. Returns an
  instance of the successfully logged in PFUser. This will also cache the user 
- locally so that calls to userFromCurrentUser will use the latest logged in user.
+ locally so that calls to currentUser will use the latest logged in user.
  @param username The username of the user.
  @param password The password of the user.
  @param error The error object to set on error.
  @result Returns an instance of the PFUser on success. If login failed for either wrong password or wrong username, returns nil.
  */
-+ (PFUser *)logInWithUsername:(NSString *)username
-                     password:(NSString *)password
-                        error:(NSError **)error;
++ (instancetype)logInWithUsername:(NSString *)username
+                         password:(NSString *)password
+                            error:(NSError **)error;
 
 /*!
  Makes an asynchronous request to login a user with specified credentials.
  Returns an instance of the successfully logged in PFUser. This will also cache 
- the user locally so that calls to userFromCurrentUser will use the latest logged in user.
+ the user locally so that calls to currentUser will use the latest logged in user.
  @param username The username of the user.
  @param password The password of the user.
  */
@@ -143,7 +143,7 @@ A Parse Framework User Object that is a local representation of a user persisted
 /*!
  Makes an asynchronous request to login a user with specified credentials.
  Returns an instance of the successfully logged in PFUser. This will also cache 
- the user locally so that calls to userFromCurrentUser will use the latest logged in user. 
+ the user locally so that calls to currentUser will use the latest logged in user. 
  The selector for the callback should look like: myCallback:(PFUser *)user error:(NSError **)error
  @param username The username of the user.
  @param password The password of the user.
@@ -158,7 +158,7 @@ A Parse Framework User Object that is a local representation of a user persisted
 /*!
  Makes an asynchronous request to log in a user with specified credentials.
  Returns an instance of the successfully logged in PFUser. This will also cache 
- the user locally so that calls to userFromCurrentUser will use the latest logged in user. 
+ the user locally so that calls to currentUser will use the latest logged in user. 
  @param username The username of the user.
  @param password The password of the user.
  @param block The block to execute. The block should have the following argument signature: (PFUser *user, NSError *error) 
@@ -166,6 +166,60 @@ A Parse Framework User Object that is a local representation of a user persisted
 + (void)logInWithUsernameInBackground:(NSString *)username
                              password:(NSString *)password
                                 block:(PFUserResultBlock)block;
+
+/** @name Becoming a user */
+
+/*!
+ Makes a request to become a user with the given session token. Returns an
+ instance of the successfully logged in PFUser. This also caches the user locally
+ so that calls to currentUser will use the latest logged in user.
+ @param sessionToken The session token for the user.
+ @result Returns an instance of the PFUser on success. If becoming a user fails due to incorrect token, it returns nil.
+ */
++ (instancetype)become:(NSString *)sessionToken;
+
+/*!
+ Makes a request to become a user with the given session token. Returns an
+ instance of the successfully logged in PFUser. This will also cache the user
+ locally so that calls to currentUser will use the latest logged in user.
+ @param sessionToken The session token for the user.
+ @param error The error object to set on error.
+ @result Returns an instance of the PFUser on success. If becoming a user fails due to incorrect token, it returns nil.
+ */
++ (instancetype)become:(NSString *)sessionToken
+                 error:(NSError **)error;
+
+/*!
+ Makes an asynchronous request to become a user with the given session token. Returns an
+ instance of the successfully logged in PFUser. This also caches the user locally
+ so that calls to currentUser will use the latest logged in user.
+ @param sessionToken The session token for the user.
+ */
++ (void)becomeInBackground:(NSString *)sessionToken;
+
+/*!
+ Makes an asynchronous request to become a user with the given session token. Returns an
+ instance of the successfully logged in PFUser. This also caches the user locally
+ so that calls to currentUser will use the latest logged in user.
+ The selector for the callback should look like: myCallback:(PFUser *)user error:(NSError **)error
+ @param sessionToken The session token for the user.
+ @param target Target object for the selector.
+ @param selector The selector that will be called when the asynchrounous request is complete.
+ */
++ (void)becomeInBackground:(NSString *)sessionToken
+                    target:(id)target
+                  selector:(SEL)selector;
+
+/*!
+ Makes an asynchronous request to become a user with the given session token. Returns an
+ instance of the successfully logged in PFUser. This also caches the user locally
+ so that calls to currentUser will use the latest logged in user.
+ The selector for the callback should look like: myCallback:(PFUser *)user error:(NSError **)error
+ @param sessionToken The session token for the user.
+ @param block The block to execute. The block should have the following argument signature: (PFUser *user, NSError *error)
+ */
++ (void)becomeInBackground:(NSString *)sessionToken
+                     block:(PFUserResultBlock)block;
 
 /** @name Logging Out */
 
