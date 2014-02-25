@@ -3,6 +3,6 @@
 	"min_platform_version": "v2.1.0",
 	"namespace": "parse",
 	"platform_version": "v2.1.0",
-	"version": "2.2",
-	"changes": "* Added new config key `delayRegistration` and method `registerForNotifications`"
+	"version": "2.3",
+	"changes": "* Upgraded Parse iOS SDK version to v1.2.18\n* Upgraded Parse Android SDK version to v1.4.1\n* Added Parse GCM support for Android"
 }
