@@ -37,18 +37,55 @@
 			}
 		}
 	},
-	{
-		"do": {
-			"android_add_permission": {
-				"permission": "android.permission.VIBRATE"
-			}
-		}
-	},
-	{
-		"do": {
-			"android_add_permission": {
-				"permission": "android.permission.RECEIVE_BOOT_COMPLETED"
-			}
-		}
-	}
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "receiver",
+                    "attributes": {
+                        "android:name": "com.parse.GcmBroadcastReceiver",
+                        "android:permission": "com.google.android.c2dm.permission.SEND"
+                    },
+                    "children": [{
+                        "tag": "intent-filter",
+                        "children": [{
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.google.android.c2dm.intent.RECEIVE"
+                            }
+                        }, {
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.google.android.c2dm.intent.REGISTRATION"
+                            }
+                        }, {
+                            "tag": "category",
+                            "attributes": {
+                                "android:name": "io.trigger.forge.android.inspector"
+                            }
+                        }]
+                    }]
+                }
+            }
+        }
+    },
+	{ "do": { "android_add_permission": { "permission": "android.permission.VIBRATE" } } },
+	{ "do": { "android_add_permission": { "permission": "android.permission.RECEIVE_BOOT_COMPLETED" } } },
+    { "do": { "android_add_permission": { "permission": "android.permission.WAKE_LOCK" } } },
+    { "do": { "android_add_permission": { "permission": "android.permission.GET_ACCOUNTS" } } },
+    { "do": { "android_add_permission": { "permission": "com.google.android.c2dm.permission.RECEIVE" } } },
+    {
+        "do":  { 
+            "android_add_to_manifest": { 
+                "element": {
+                    "tag": "permission",
+                    "attributes": {
+                        "android:name": "io.trigger.forge.android.inspector.permission.C2D_MESSAGE",
+                        "android:protectionLevel": "signature"
+                    }
+                }
+            } 
+        } 
+    },
+    { "do": { "android_add_permission": { "permission": "io.trigger.forge.android.inspector.permission.C2D_MESSAGE" } } }
 ]
