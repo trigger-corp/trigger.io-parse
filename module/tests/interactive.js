@@ -21,7 +21,7 @@ if (forge.is.mobile()) {
 					success: function () {
 						setTimeout(function () {
 							forge.partners.parse.push.unsubscribe(channel);
-						}, 10000);
+						}, 60000);
 					},
 					error: function () {
 						setTimeout(function () {

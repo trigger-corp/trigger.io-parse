@@ -20,7 +20,7 @@
 
 + (void)getBadgeNumber:(ForgeTask *)task {
 	PFInstallation *installation = [PFInstallation currentInstallation];
-	[task success:[NSNumber numberWithInt:installation.badge]];
+	[task success:[NSNumber numberWithLong:installation.badge]];
 }
 
 + (void)setBadgeNumber:(ForgeTask *)task number:(NSNumber*)number {
