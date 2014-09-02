@@ -18,9 +18,17 @@ static NSDictionary* lastNotif;
 	launchOptions = launchOptionsDict != NULL ? [NSDictionary dictionaryWithDictionary:launchOptionsDict] : NULL;
 }
 
-+ (void)registerForNotifications:(NSString*)applicationId clientKey:(NSString*)clientKey {
++ (void)registerForNotifications:(UIApplication*)application applicationId:(NSString*)applicationId clientKey:(NSString*)clientKey {
 	[Parse setApplicationId:applicationId clientKey:clientKey];
-	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
+    
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound|UIUserNotificationTypeAlert|UIUserNotificationTypeBadge) categories:nil]];
+        [application registerForRemoteNotifications];
+        
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
+    }
+    
 	if (launchOptions != NULL && [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil) {
 		[parse_Util notifRecieved:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
 		[parse_Util triggerMessagePushedEvent];

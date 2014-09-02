@@ -80,8 +80,9 @@
 	}
 
 	if (delayRegistration) {
-		[parse_Util registerForNotifications:[config objectForKey:@"applicationId"]
-								   clientKey:[config objectForKey:@"clientKey"]];
+        [parse_Util registerForNotifications:[UIApplication sharedApplication]
+                               applicationId:[config objectForKey:@"applicationId"]
+                                   clientKey:[config objectForKey:@"clientKey"]];
 		[task success:nil];
 	} else {
 		[task error:@"You need to enable the 'delayRegistration' option in your app configuration to use this feature."];

@@ -25,7 +25,8 @@
 	Boolean registeredForNotifications = [prefs boolForKey:@"parse_registeredForNotifications"];
 
 	if (!delayRegistration || registeredForNotifications) {
-		[parse_Util registerForNotifications:[config objectForKey:@"applicationId"]
+		[parse_Util registerForNotifications:application
+                               applicationId:[config objectForKey:@"applicationId"]
 								   clientKey:[config objectForKey:@"clientKey"]];
 	}
 }
