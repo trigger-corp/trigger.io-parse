@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71088DF418BC94AD00FB9ADF /* FacebookDummySymbols.m in Sources */ = {isa = PBXBuildFile; fileRef = 71088DF318BC94AD00FB9ADF /* FacebookDummySymbols.m */; };
 		71EECFD419B5E4CA0058CF2B /* Parse in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EECFD319B5E4CA0058CF2B /* Parse */; };
 		B3127A6616AEF7370027B9B8 /* parse_API.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6116AEF7370027B9B8 /* parse_API.m */; };
 		B3127A6716AEF7370027B9B8 /* parse_EventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6316AEF7370027B9B8 /* parse_EventListener.m */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		71088DF318BC94AD00FB9ADF /* FacebookDummySymbols.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookDummySymbols.m; sourceTree = "<group>"; };
 		71EECFB219B5E4CA0058CF2B /* Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parse.h; sourceTree = "<group>"; };
 		71EECFB319B5E4CA0058CF2B /* PF_EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		71EECFB419B5E4CA0058CF2B /* PF_MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_MBProgressHUD.h; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				B3127A6316AEF7370027B9B8 /* parse_EventListener.m */,
 				B3127A6416AEF7370027B9B8 /* parse_Util.h */,
 				B3127A6516AEF7370027B9B8 /* parse_Util.m */,
-				71088DF318BC94AD00FB9ADF /* FacebookDummySymbols.m */,
 				B31B6D5015C13D5200854074 /* Frameworks */,
 				B31B6D4F15C13D5200854074 /* Products */,
 			);
@@ -267,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71088DF418BC94AD00FB9ADF /* FacebookDummySymbols.m in Sources */,
 				B3127A6616AEF7370027B9B8 /* parse_API.m in Sources */,
 				B3127A6716AEF7370027B9B8 /* parse_EventListener.m in Sources */,
 				B3127A6816AEF7370027B9B8 /* parse_Util.m in Sources */,

@@ -1,8 +1,8 @@
 {
-	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-	"min_platform_version": "v2.1.0",
-	"namespace": "parse",
-	"platform_version": "v2.1.0",
-	"version": "2.3",
-	"changes": "* Upgraded Parse iOS SDK version to v1.2.18\n* Upgraded Parse Android SDK version to v1.4.1\n* Added Parse GCM support for Android"
+    "changes": "* Support arm64 devices running iOS 8\n* Update Parse iOS SDK to 1.2.21", 
+    "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.", 
+    "min_platform_version": "v2.1.0", 
+    "namespace": "parse", 
+    "platform_version": "v2.2.0", 
+    "version": "2.4"
 }

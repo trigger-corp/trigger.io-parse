@@ -9,8 +9,8 @@ if (forge.is.mobile()) {
 				$.ajax({
 					url: 'https://api.parse.com/1/push',
 					headers: {
-						"X-Parse-Application-Id": "aMw5LWWvHxsnqdl6c2cjmayf0wYHZoaa5vbeKKd3",
-						"X-Parse-REST-API-Key": "nkB2qzJpzrKgZyV7GzXkKiuSr1hGZeoyYnyOOyxy"
+						"X-Parse-Application-Id": "TPMPKPXNzTmfmDayiT9J4alyiWImb3SaTdMJ8vOy",
+						"X-Parse-REST-API-Key": "dgrzEF3aWQNGo84oOX0kOdaavU1Oy2ffPWBurjfq"
 					},
 					contentType: "application/json",
 					type: 'POST',
