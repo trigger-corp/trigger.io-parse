@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Parse.h"
-#import "PFInstallation.h"
 
 @interface parse_API : NSObject
 

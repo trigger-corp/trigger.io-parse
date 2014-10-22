@@ -21,39 +21,39 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		71EECFB219B5E4CA0058CF2B /* Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parse.h; sourceTree = "<group>"; };
-		71EECFB319B5E4CA0058CF2B /* PF_EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
-		71EECFB419B5E4CA0058CF2B /* PF_MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_MBProgressHUD.h; sourceTree = "<group>"; };
-		71EECFB519B5E4CA0058CF2B /* PF_Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_Twitter.h; sourceTree = "<group>"; };
-		71EECFB619B5E4CA0058CF2B /* PFACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFACL.h; sourceTree = "<group>"; };
-		71EECFB719B5E4CA0058CF2B /* PFAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAnalytics.h; sourceTree = "<group>"; };
-		71EECFB819B5E4CA0058CF2B /* PFAnonymousUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAnonymousUtils.h; sourceTree = "<group>"; };
-		71EECFB919B5E4CA0058CF2B /* PFCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCloud.h; sourceTree = "<group>"; };
-		71EECFBA19B5E4CA0058CF2B /* PFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFConstants.h; sourceTree = "<group>"; };
-		71EECFBB19B5E4CA0058CF2B /* PFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFile.h; sourceTree = "<group>"; };
-		71EECFBC19B5E4CA0058CF2B /* PFGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGeoPoint.h; sourceTree = "<group>"; };
-		71EECFBD19B5E4CA0058CF2B /* PFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFImageView.h; sourceTree = "<group>"; };
-		71EECFBE19B5E4CA0058CF2B /* PFInstallation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstallation.h; sourceTree = "<group>"; };
-		71EECFBF19B5E4CA0058CF2B /* PFLogInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLogInView.h; sourceTree = "<group>"; };
-		71EECFC019B5E4CA0058CF2B /* PFLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLogInViewController.h; sourceTree = "<group>"; };
-		71EECFC119B5E4CA0058CF2B /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		71EECFC219B5E4CA0058CF2B /* PFObject+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+Subclass.h"; sourceTree = "<group>"; };
-		71EECFC319B5E4CA0058CF2B /* PFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFObject.h; sourceTree = "<group>"; };
-		71EECFC419B5E4CA0058CF2B /* PFProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProduct.h; sourceTree = "<group>"; };
-		71EECFC519B5E4CA0058CF2B /* PFProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProductTableViewController.h; sourceTree = "<group>"; };
-		71EECFC619B5E4CA0058CF2B /* PFPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchase.h; sourceTree = "<group>"; };
-		71EECFC719B5E4CA0058CF2B /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
-		71EECFC819B5E4CA0058CF2B /* PFPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPush.h; sourceTree = "<group>"; };
-		71EECFC919B5E4CA0058CF2B /* PFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQuery.h; sourceTree = "<group>"; };
-		71EECFCA19B5E4CA0058CF2B /* PFQueryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQueryTableViewController.h; sourceTree = "<group>"; };
-		71EECFCB19B5E4CA0058CF2B /* PFRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRelation.h; sourceTree = "<group>"; };
-		71EECFCC19B5E4CA0058CF2B /* PFRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRole.h; sourceTree = "<group>"; };
-		71EECFCD19B5E4CA0058CF2B /* PFSignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSignUpView.h; sourceTree = "<group>"; };
-		71EECFCE19B5E4CA0058CF2B /* PFSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSignUpViewController.h; sourceTree = "<group>"; };
-		71EECFCF19B5E4CA0058CF2B /* PFSubclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSubclassing.h; sourceTree = "<group>"; };
-		71EECFD019B5E4CA0058CF2B /* PFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTableViewCell.h; sourceTree = "<group>"; };
-		71EECFD119B5E4CA0058CF2B /* PFTwitterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTwitterUtils.h; sourceTree = "<group>"; };
-		71EECFD219B5E4CA0058CF2B /* PFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFUser.h; sourceTree = "<group>"; };
+		7166E5FB19F7AFDB000DF5D9 /* Parse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parse.h; sourceTree = "<group>"; };
+		7166E5FC19F7AFDB000DF5D9 /* PF_MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PF_MBProgressHUD.h; sourceTree = "<group>"; };
+		7166E5FD19F7AFDB000DF5D9 /* PF_Twitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PF_Twitter.h; sourceTree = "<group>"; };
+		7166E5FE19F7AFDB000DF5D9 /* PFACL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFACL.h; sourceTree = "<group>"; };
+		7166E5FF19F7AFDB000DF5D9 /* PFAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFAnalytics.h; sourceTree = "<group>"; };
+		7166E60019F7AFDB000DF5D9 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFAnonymousUtils.h; sourceTree = "<group>"; };
+		7166E60119F7AFDB000DF5D9 /* PFCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFCloud.h; sourceTree = "<group>"; };
+		7166E60219F7AFDB000DF5D9 /* PFConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFConfig.h; sourceTree = "<group>"; };
+		7166E60319F7AFDB000DF5D9 /* PFConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFConstants.h; sourceTree = "<group>"; };
+		7166E60419F7AFDB000DF5D9 /* PFFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFFile.h; sourceTree = "<group>"; };
+		7166E60519F7AFDB000DF5D9 /* PFGeoPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFGeoPoint.h; sourceTree = "<group>"; };
+		7166E60619F7AFDB000DF5D9 /* PFImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFImageView.h; sourceTree = "<group>"; };
+		7166E60719F7AFDB000DF5D9 /* PFInstallation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFInstallation.h; sourceTree = "<group>"; };
+		7166E60819F7AFDB000DF5D9 /* PFLogInView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFLogInView.h; sourceTree = "<group>"; };
+		7166E60919F7AFDB000DF5D9 /* PFLogInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFLogInViewController.h; sourceTree = "<group>"; };
+		7166E60A19F7AFDB000DF5D9 /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		7166E60B19F7AFDB000DF5D9 /* PFObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFObject.h; sourceTree = "<group>"; };
+		7166E60C19F7AFDB000DF5D9 /* PFObject+Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFObject+Subclass.h"; sourceTree = "<group>"; };
+		7166E60D19F7AFDB000DF5D9 /* PFProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFProduct.h; sourceTree = "<group>"; };
+		7166E60E19F7AFDB000DF5D9 /* PFProductTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFProductTableViewController.h; sourceTree = "<group>"; };
+		7166E60F19F7AFDB000DF5D9 /* PFPurchase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFPurchase.h; sourceTree = "<group>"; };
+		7166E61019F7AFDB000DF5D9 /* PFPurchaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFPurchaseTableViewCell.h; sourceTree = "<group>"; };
+		7166E61119F7AFDB000DF5D9 /* PFPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFPush.h; sourceTree = "<group>"; };
+		7166E61219F7AFDB000DF5D9 /* PFQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFQuery.h; sourceTree = "<group>"; };
+		7166E61319F7AFDB000DF5D9 /* PFQueryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFQueryTableViewController.h; sourceTree = "<group>"; };
+		7166E61419F7AFDB000DF5D9 /* PFRelation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFRelation.h; sourceTree = "<group>"; };
+		7166E61519F7AFDB000DF5D9 /* PFRole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFRole.h; sourceTree = "<group>"; };
+		7166E61619F7AFDB000DF5D9 /* PFSignUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFSignUpView.h; sourceTree = "<group>"; };
+		7166E61719F7AFDB000DF5D9 /* PFSignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFSignUpViewController.h; sourceTree = "<group>"; };
+		7166E61819F7AFDB000DF5D9 /* PFSubclassing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFSubclassing.h; sourceTree = "<group>"; };
+		7166E61919F7AFDB000DF5D9 /* PFTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFTableViewCell.h; sourceTree = "<group>"; };
+		7166E61A19F7AFDB000DF5D9 /* PFTwitterUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFTwitterUtils.h; sourceTree = "<group>"; };
+		7166E61B19F7AFDB000DF5D9 /* PFUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFUser.h; sourceTree = "<group>"; };
 		71EECFD319B5E4CA0058CF2B /* Parse */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Parse; path = Parse.framework/Versions/A/Parse; sourceTree = "<group>"; };
 		B3127A6016AEF7370027B9B8 /* parse_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_API.h; sourceTree = "<group>"; };
 		B3127A6116AEF7370027B9B8 /* parse_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parse_API.m; sourceTree = "<group>"; };
@@ -110,39 +110,39 @@
 		71EECFB119B5E4CA0058CF2B /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				71EECFB219B5E4CA0058CF2B /* Parse.h */,
-				71EECFB319B5E4CA0058CF2B /* PF_EGORefreshTableHeaderView.h */,
-				71EECFB419B5E4CA0058CF2B /* PF_MBProgressHUD.h */,
-				71EECFB519B5E4CA0058CF2B /* PF_Twitter.h */,
-				71EECFB619B5E4CA0058CF2B /* PFACL.h */,
-				71EECFB719B5E4CA0058CF2B /* PFAnalytics.h */,
-				71EECFB819B5E4CA0058CF2B /* PFAnonymousUtils.h */,
-				71EECFB919B5E4CA0058CF2B /* PFCloud.h */,
-				71EECFBA19B5E4CA0058CF2B /* PFConstants.h */,
-				71EECFBB19B5E4CA0058CF2B /* PFFile.h */,
-				71EECFBC19B5E4CA0058CF2B /* PFGeoPoint.h */,
-				71EECFBD19B5E4CA0058CF2B /* PFImageView.h */,
-				71EECFBE19B5E4CA0058CF2B /* PFInstallation.h */,
-				71EECFBF19B5E4CA0058CF2B /* PFLogInView.h */,
-				71EECFC019B5E4CA0058CF2B /* PFLogInViewController.h */,
-				71EECFC119B5E4CA0058CF2B /* PFNetworkActivityIndicatorManager.h */,
-				71EECFC219B5E4CA0058CF2B /* PFObject+Subclass.h */,
-				71EECFC319B5E4CA0058CF2B /* PFObject.h */,
-				71EECFC419B5E4CA0058CF2B /* PFProduct.h */,
-				71EECFC519B5E4CA0058CF2B /* PFProductTableViewController.h */,
-				71EECFC619B5E4CA0058CF2B /* PFPurchase.h */,
-				71EECFC719B5E4CA0058CF2B /* PFPurchaseTableViewCell.h */,
-				71EECFC819B5E4CA0058CF2B /* PFPush.h */,
-				71EECFC919B5E4CA0058CF2B /* PFQuery.h */,
-				71EECFCA19B5E4CA0058CF2B /* PFQueryTableViewController.h */,
-				71EECFCB19B5E4CA0058CF2B /* PFRelation.h */,
-				71EECFCC19B5E4CA0058CF2B /* PFRole.h */,
-				71EECFCD19B5E4CA0058CF2B /* PFSignUpView.h */,
-				71EECFCE19B5E4CA0058CF2B /* PFSignUpViewController.h */,
-				71EECFCF19B5E4CA0058CF2B /* PFSubclassing.h */,
-				71EECFD019B5E4CA0058CF2B /* PFTableViewCell.h */,
-				71EECFD119B5E4CA0058CF2B /* PFTwitterUtils.h */,
-				71EECFD219B5E4CA0058CF2B /* PFUser.h */,
+				7166E5FB19F7AFDB000DF5D9 /* Parse.h */,
+				7166E5FC19F7AFDB000DF5D9 /* PF_MBProgressHUD.h */,
+				7166E5FD19F7AFDB000DF5D9 /* PF_Twitter.h */,
+				7166E5FE19F7AFDB000DF5D9 /* PFACL.h */,
+				7166E5FF19F7AFDB000DF5D9 /* PFAnalytics.h */,
+				7166E60019F7AFDB000DF5D9 /* PFAnonymousUtils.h */,
+				7166E60119F7AFDB000DF5D9 /* PFCloud.h */,
+				7166E60219F7AFDB000DF5D9 /* PFConfig.h */,
+				7166E60319F7AFDB000DF5D9 /* PFConstants.h */,
+				7166E60419F7AFDB000DF5D9 /* PFFile.h */,
+				7166E60519F7AFDB000DF5D9 /* PFGeoPoint.h */,
+				7166E60619F7AFDB000DF5D9 /* PFImageView.h */,
+				7166E60719F7AFDB000DF5D9 /* PFInstallation.h */,
+				7166E60819F7AFDB000DF5D9 /* PFLogInView.h */,
+				7166E60919F7AFDB000DF5D9 /* PFLogInViewController.h */,
+				7166E60A19F7AFDB000DF5D9 /* PFNetworkActivityIndicatorManager.h */,
+				7166E60B19F7AFDB000DF5D9 /* PFObject.h */,
+				7166E60C19F7AFDB000DF5D9 /* PFObject+Subclass.h */,
+				7166E60D19F7AFDB000DF5D9 /* PFProduct.h */,
+				7166E60E19F7AFDB000DF5D9 /* PFProductTableViewController.h */,
+				7166E60F19F7AFDB000DF5D9 /* PFPurchase.h */,
+				7166E61019F7AFDB000DF5D9 /* PFPurchaseTableViewCell.h */,
+				7166E61119F7AFDB000DF5D9 /* PFPush.h */,
+				7166E61219F7AFDB000DF5D9 /* PFQuery.h */,
+				7166E61319F7AFDB000DF5D9 /* PFQueryTableViewController.h */,
+				7166E61419F7AFDB000DF5D9 /* PFRelation.h */,
+				7166E61519F7AFDB000DF5D9 /* PFRole.h */,
+				7166E61619F7AFDB000DF5D9 /* PFSignUpView.h */,
+				7166E61719F7AFDB000DF5D9 /* PFSignUpViewController.h */,
+				7166E61819F7AFDB000DF5D9 /* PFSubclassing.h */,
+				7166E61919F7AFDB000DF5D9 /* PFTableViewCell.h */,
+				7166E61A19F7AFDB000DF5D9 /* PFTwitterUtils.h */,
+				7166E61B19F7AFDB000DF5D9 /* PFUser.h */,
 			);
 			name = Headers;
 			path = Parse.framework/Versions/A/Headers;

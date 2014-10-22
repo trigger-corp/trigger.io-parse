@@ -9,6 +9,8 @@
 #import "parse_API.h"
 #import "parse_Util.h"
 
+#import "Parse.h"
+
 @implementation parse_API
 
 + (void)installationInfo:(ForgeTask *)task {
