@@ -37,6 +37,38 @@
 			}
 		}
 	},
+	{
+		"do": {
+			"android_add_to_application_manifest": {
+				"element": {
+					"tag": "receiver",
+					"attributes": {
+						"android:name": "io.trigger.forge.android.modules.parse.ForgePushBroadcastReceiver",
+						"android:exported": "false"
+					},
+					"children": [{
+						"tag": "intent-filter",
+						"children": [{
+							"tag": "action",
+							"attributes": {
+								"android:name": "com.parse.push.intent.RECEIVE"
+							}
+						}, {
+							"tag": "action",
+							"attributes": {
+								"android:name": "com.parse.push.intent.DELETE"
+							}
+						}, {
+							"tag": "action",
+							"attributes": {
+								"android:name": "com.parse.push.intent.OPEN"
+							}
+						}]
+					}]
+				}
+			}
+		}
+	},
     {
         "do": {
             "android_add_to_application_manifest": {

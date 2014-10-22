@@ -1,16 +1,19 @@
 package io.trigger.forge.android.modules.parse;
 
-import io.trigger.forge.android.core.ForgeActivity;
 import io.trigger.forge.android.core.ForgeApp;
+import io.trigger.forge.android.core.ForgeLog;
 import io.trigger.forge.android.core.ForgeParam;
 import io.trigger.forge.android.core.ForgeTask;
 
+import java.util.List;
+
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonObject;
-import com.parse.PushService;
 import com.parse.ParseInstallation;
+import com.parse.ParsePush;
+import com.parse.SaveCallback;
 
 
 public class API {
@@ -21,18 +24,39 @@ public class API {
 	}
 
 	public static void push_subscribe(final ForgeTask task, @ForgeParam("channel") final String channel) {
-		PushService.subscribe(ForgeApp.getActivity(), channel, ForgeActivity.class);
-		task.success();
+		ParsePush.subscribeInBackground(channel, new SaveCallback() {
+			@Override
+			public void done(com.parse.ParseException e) {
+				if (e == null) {
+					ForgeLog.d("com.parse.push successfully subscribed to: " + channel);
+					task.success();
+				} else {
+					ForgeLog.e("com.parse.push failed to subscribe to " + channel + ": " + e.getMessage());
+					task.error(e);
+				}
+			}
+		});
 	}
 
 	public static void push_unsubscribe(final ForgeTask task, @ForgeParam("channel") final String channel) {
-		PushService.unsubscribe(ForgeApp.getActivity(), channel);
-		task.success();
+		ParsePush.unsubscribeInBackground(channel, new SaveCallback() {
+			@Override
+			public void done(com.parse.ParseException e) {
+				if (e == null) {
+					ForgeLog.d("com.parse.push successfully unsubscribed from: " + channel);
+					task.success();
+				} else {
+					ForgeLog.e("com.parse.push failed to unsubscribe from " + channel + ": " + e.getMessage());
+					task.error(e);
+				}
+			}
+		});
 	}
 
 	public static void push_subscribedChannels(final ForgeTask task) {
 		JsonArray result = new JsonArray();
-		for (String channel : PushService.getSubscriptions(ForgeApp.getActivity())) {
+		List<String> subscribedChannels = ParseInstallation.getCurrentInstallation().getList("channels");
+		for (String channel : subscribedChannels) {
 			result.add(new JsonPrimitive(channel));
 		}
 		task.success(result);
