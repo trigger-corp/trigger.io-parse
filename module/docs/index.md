@@ -9,7 +9,8 @@ back-end](http://trigger.io/cross-platform-application-development-blog/2012/03/
 
 Parse push notifications are integrated directly Forge. Other Parse features may be accessed by using [forge.request.ajax](/modules/request/current/docs/index.html#forgerequestajaxoptions) with the [Parse REST API](https://parse.com/docs/rest).
 
-> ::Important:: In order to use this module you'll need to register an app at [parse.com](https://parse.com/).
+> ::Important:: Following the acquisition of Parse by Facebook, you will also need to include the [facebook](/modules/facebook) module to compile your app with version `2.3` or newer of this module.
+
 
 ##Config options
 
@@ -23,6 +24,8 @@ delayRegistration
 :	Don't register for remote notifications at app startup (iOS Only)
 
 ##Concepts
+
+> ::Important:: In order to use this module you'll need to register an app at [parse.com](https://parse.com/).
 
 Push notifications received through Parse can be used with the generic
 push notification event in Forge, see the [event API](/docs/current/api/core/event.html) for
@@ -42,6 +45,7 @@ Parse uses channels to send push notifications to specific groups of
 users. By default all users are subscribed to the empty channel; if you
 wish to send push notifications to specific users, you can use the
 following methods to manage which channels a user is subscribed to.
+
 
 ##API
 
