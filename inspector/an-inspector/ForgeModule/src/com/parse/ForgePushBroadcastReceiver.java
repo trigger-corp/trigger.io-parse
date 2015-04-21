@@ -1,4 +1,4 @@
-package io.trigger.forge.android.modules.parse;
+package com.parse;
 
 import io.trigger.forge.android.core.ForgeActivity;
 
