@@ -43,7 +43,7 @@
 				"element": {
 					"tag": "receiver",
 					"attributes": {
-						"android:name": "io.trigger.forge.android.modules.parse.ForgePushBroadcastReceiver",
+						"android:name": "com.parse.ForgePushBroadcastReceiver",
 						"android:exported": "false"
 					},
 					"children": [{

@@ -16,6 +16,11 @@
 			"required": false,
 			"description": "Don't register for remote notifications at app startup",
 			"type": "boolean"
+		},
+		"updateNotifications": {
+			"required": false,
+			"description": "Update notifications on Android, includes a message counter",
+			"type": "boolean"
 		}
 	}
 }

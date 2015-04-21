@@ -15,8 +15,8 @@ public class EventListener extends ForgeEventListener {
 	@Override
 	public void onApplicationCreate() {
 		Parse.initialize(ForgeApp.getApp(),
-				ForgeApp.configForPlugin("parse").get("applicationId").getAsString(),
-				ForgeApp.configForPlugin("parse").get("clientKey").getAsString());
+				ForgeApp.configForPlugin(Constant.MODULE_NAME).get("applicationId").getAsString(),
+				ForgeApp.configForPlugin(Constant.MODULE_NAME).get("clientKey").getAsString());
 		ParseInstallation.getCurrentInstallation().saveInBackground();		
 		ParsePush.subscribeInBackground("", new SaveCallback() {
 			@Override
