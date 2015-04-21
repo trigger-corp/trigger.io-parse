@@ -1,5 +1,6 @@
 package com.parse;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -23,7 +24,6 @@ import java.util.Random;
 public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private static final String PARSE_PREFS = "forge.parse.com";
     private static final String MESSAGE_COUNTER_KEY = "messages.counter";
-    private static final String LOGGER_TAG = "ForgePushBroadcastReceiver";
     private static final String UPDATE_NOTIFICATIONS_FEATURE = "updateNotifications";
 
     protected static JsonObject getForgeConfig() {
@@ -41,13 +41,26 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
 
         boolean updateNotificationsFeature = getForgeConfig().has(UPDATE_NOTIFICATIONS_FEATURE) && getForgeConfig().get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
         if (updateNotificationsFeature) {
-            Log.i(LOGGER_TAG, "Resetting Message Number");
+            Log.i(Constant.LOGGER_TAG, "Resetting Message Number");
+            setMessageNumber(context, 0);
+        }
+    }
+
+    @Override
+    protected void onPushDismiss(Context context, Intent intent) {
+        boolean updateNotificationsFeature = getForgeConfig().has(UPDATE_NOTIFICATIONS_FEATURE) && getForgeConfig().get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
+        if (updateNotificationsFeature) {
+            Log.i(Constant.LOGGER_TAG, "Resetting Message Number");
             setMessageNumber(context, 0);
         }
     }
 
     @Override
     protected void onPushReceive(Context context, Intent intent) {
+        if (VisibilityManager.isVisible()) {
+            return;
+        }
+
         boolean updateNotificationsFeature = getForgeConfig().has(UPDATE_NOTIFICATIONS_FEATURE) && getForgeConfig().get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
 
         if (!updateNotificationsFeature) {
@@ -124,7 +137,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     }
 
     protected void setMessageNumber(Context context, int messageNumber) {
-        Log.i(LOGGER_TAG, "Message Number: " + messageNumber);
+        Log.i(Constant.LOGGER_TAG, "Message Number: " + messageNumber);
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putInt(MESSAGE_COUNTER_KEY, messageNumber);
         editor.commit();
@@ -159,7 +172,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         int messageNumber = 1 + getSharedPreferences(context).getInt(MESSAGE_COUNTER_KEY, 0);
         setMessageNumber(context, messageNumber);
         if (messageNumber > 1) {
-            Log.i(LOGGER_TAG, "Setting Message Number");
+            Log.i(Constant.LOGGER_TAG, "Setting Message Number");
             parseBuilder.setNumber(messageNumber);
         }
         return parseBuilder;
