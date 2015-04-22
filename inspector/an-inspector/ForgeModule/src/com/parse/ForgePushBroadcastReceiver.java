@@ -1,6 +1,5 @@
 package com.parse;
 
-import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,7 +13,6 @@ import android.content.Context;
 import android.content.Intent;
 
 import io.trigger.forge.android.core.ForgeApp;
-import io.trigger.forge.android.core.ForgeLog;
 import io.trigger.forge.android.modules.parse.Constant;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,8 +24,11 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private static final String MESSAGE_COUNTER_KEY = "messages.counter";
     private static final String UPDATE_NOTIFICATIONS_FEATURE = "updateNotifications";
 
-    protected static JsonObject getForgeConfig() {
-        return ForgeApp.configForModule(Constant.MODULE_NAME);
+    private boolean isUpdateNotificationsFeature() {
+        JsonObject forgeConfig = ForgeApp.configForModule(Constant.MODULE_NAME);
+
+        return forgeConfig.has(UPDATE_NOTIFICATIONS_FEATURE) &&
+                forgeConfig.get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
     }
 
     @Override
@@ -39,18 +40,14 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         activity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(activity);
 
-        boolean updateNotificationsFeature = getForgeConfig().has(UPDATE_NOTIFICATIONS_FEATURE) && getForgeConfig().get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
-        if (updateNotificationsFeature) {
-            Log.i(Constant.LOGGER_TAG, "Resetting Message Number");
+        if (isUpdateNotificationsFeature()) {
             setMessageNumber(context, 0);
         }
     }
 
     @Override
     protected void onPushDismiss(Context context, Intent intent) {
-        boolean updateNotificationsFeature = getForgeConfig().has(UPDATE_NOTIFICATIONS_FEATURE) && getForgeConfig().get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
-        if (updateNotificationsFeature) {
-            Log.i(Constant.LOGGER_TAG, "Resetting Message Number");
+        if (isUpdateNotificationsFeature()) {
             setMessageNumber(context, 0);
         }
     }
@@ -61,9 +58,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
             return;
         }
 
-        boolean updateNotificationsFeature = getForgeConfig().has(UPDATE_NOTIFICATIONS_FEATURE) && getForgeConfig().get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
-
-        if (!updateNotificationsFeature) {
+        if (!isUpdateNotificationsFeature()) {
             super.onPushReceive(context, intent);
             return;
         }
@@ -74,7 +69,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
             pushData = new JSONObject(intent.getStringExtra("com.parse.Data"));
         } catch (JSONException ex) {
             ex.printStackTrace();
-            ForgeLog.e("com.parse.ParsePushReceiver: Unexpected JSONException when receiving push data: " + ex.getMessage());
+            Log.e(Constant.LOGGER_TAG, "com.parse.ParsePushReceiver: Unexpected JSONException when receiving push data: " + ex.getMessage());
         }
 
         String action = null;
@@ -137,7 +132,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     }
 
     protected void setMessageNumber(Context context, int messageNumber) {
-        Log.i(Constant.LOGGER_TAG, "Message Number: " + messageNumber);
+        Log.d(Constant.LOGGER_TAG, "Message Number: " + messageNumber);
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putInt(MESSAGE_COUNTER_KEY, messageNumber);
         editor.commit();
@@ -172,7 +167,6 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         int messageNumber = 1 + getSharedPreferences(context).getInt(MESSAGE_COUNTER_KEY, 0);
         setMessageNumber(context, messageNumber);
         if (messageNumber > 1) {
-            Log.i(Constant.LOGGER_TAG, "Setting Message Number");
             parseBuilder.setNumber(messageNumber);
         }
         return parseBuilder;

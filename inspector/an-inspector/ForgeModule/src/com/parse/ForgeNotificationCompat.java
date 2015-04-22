@@ -4,12 +4,6 @@ import android.app.Notification;
 import android.content.Context;
 import android.os.Build;
 
-/**
- * Created for an-inspector
- * User: arolave
- * Date: 20/04/15
- * Time: 14:30
- */
 public class ForgeNotificationCompat extends NotificationCompat {
   private static final NotificationCompat.NotificationCompatImpl IMPL;
 

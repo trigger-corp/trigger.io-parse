@@ -12,14 +12,9 @@ public class EventListener extends ForgeEventListener {
 	@Override
 	public void onApplicationCreate() {
 		Parse.initialize(ForgeApp.getApp(),
-						ForgeApp.configForPlugin(Constant.MODULE_NAME)
-										.get("applicationId")
-										.getAsString(),
-						ForgeApp.configForPlugin(Constant.MODULE_NAME)
-										.get("clientKey")
-										.getAsString());
-		ParseInstallation.getCurrentInstallation()
-										 .saveInBackground();
+						ForgeApp.configForPlugin(Constant.MODULE_NAME).get("applicationId").getAsString(),
+						ForgeApp.configForPlugin(Constant.MODULE_NAME).get("clientKey").getAsString());
+		ParseInstallation.getCurrentInstallation().saveInBackground();
 		ParsePush.subscribeInBackground("", new SaveCallback() {
 			@Override
 			public void done(com.parse.ParseException e) {
@@ -35,10 +30,8 @@ public class EventListener extends ForgeEventListener {
 
 	@Override
 	public void onNewIntent(Intent intent) {
-		if (intent.getExtras() != null && intent.getExtras()
-																						.get("com.parse.Data") != null) {
-			ForgeApp.event("event.messagePushed", new JsonParser().parse((String) intent.getExtras()
-																																									.get("com.parse.Data")));
+		if (intent.getExtras() != null && intent.getExtras().get("com.parse.Data") != null) {
+			ForgeApp.event("event.messagePushed", new JsonParser().parse((String) intent.getExtras()																							.get("com.parse.Data")));
 		}
 	}
 
