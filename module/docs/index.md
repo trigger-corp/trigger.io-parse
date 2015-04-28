@@ -23,6 +23,10 @@ clientKey
 delayRegistration
 :	Don't register for remote notifications at app startup (iOS Only)
 
+updateNotifications
+:    Update notifications on Android with a message counter. This option also suppresses notification display while the app is visible line on iOS. (Android Only)
+
+
 ##Concepts
 
 > ::Important:: In order to use this module you'll need to register an app at [parse.com](https://parse.com/).

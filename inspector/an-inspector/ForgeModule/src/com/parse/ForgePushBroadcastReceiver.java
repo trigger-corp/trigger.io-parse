@@ -54,7 +54,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
 
     @Override
     protected void onPushReceive(Context context, Intent intent) {
-        if (VisibilityManager.isVisible()) {
+        if (isUpdateNotificationsFeature() && VisibilityManager.isVisible()) {
             return;
         }
 
