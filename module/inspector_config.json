@@ -3,13 +3,13 @@
 		"config": {
 			"applicationId": "TPMPKPXNzTmfmDayiT9J4alyiWImb3SaTdMJ8vOy",
 			"clientKey": "yjksLK4Rvzlvp4kxUxQdVat8jkssA6vVdGQIncma",
-			"delayRegistration": false,
+			"delayRegistration": true,
 			"updateNotifications": false
 		}
 	},
 	"modules": {
         "facebook": {
-            "version": "2.6",
+            "version": "2.9",
             "config": {
                 "appid": "617039718370339"
             }

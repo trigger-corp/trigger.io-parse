@@ -1,9 +1,9 @@
 {
-	"changes": "* Updatable notifications for Android",
+	"changes": "* Update Parse Android SDK to 1.9.1\n* Update Parse iOS SDK to 1.7.2",
 	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
 	"min_platform_version": "v2.2.0",
 	"namespace": "parse",
 	"platform_version": "v2.2.5",
-	"version": "2.6",
+	"version": "2.7",
 	"dependencies": {}
 }
