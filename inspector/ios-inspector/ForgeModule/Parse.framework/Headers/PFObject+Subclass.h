@@ -7,10 +7,14 @@
 #import <Foundation/Foundation.h>
 
 #if TARGET_OS_IPHONE
+#import <Parse/PFNullability.h>
 #import <Parse/PFObject.h>
 #else
+#import <ParseOSX/PFNullability.h>
 #import <ParseOSX/PFObject.h>
 #endif
+
+PF_ASSUME_NONNULL_BEGIN
 
 @class PFQuery;
 
@@ -91,7 +95,7 @@
 
  @returns An instance of `PFObject` without data.
  */
-+ (instancetype)objectWithoutDataWithObjectId:(NSString *)objectId;
++ (instancetype)objectWithoutDataWithObjectId:(PF_NULLABLE NSString *)objectId;
 
 /*!
  @abstract Registers an Objective-C class for Parse to use for representing a given Parse class.
@@ -109,6 +113,22 @@
  @discussion This method can only be called on subclasses which conform to <PFSubclassing>.
  A default implementation is provided by <PFObject> which should always be sufficient.
  */
-+ (PFQuery *)query;
++ (PF_NULLABLE PFQuery *)query;
+
+/*!
+ @abstract Returns a query for objects of type <parseClassName> with a given predicate.
+
+ @discussion A default implementation is provided by <PFObject> which should always be sufficient.
+ @warning This method can only be called on subclasses which conform to <PFSubclassing>.
+
+ @param predicate The predicate to create conditions from.
+
+ @returns An instance of <PFQuery>.
+
+ @see [PFQuery queryWithClassName:predicate:]
+ */
++ (PF_NULLABLE PFQuery *)queryWithPredicate:(PF_NULLABLE NSPredicate *)predicate;
 
 @end
+
+PF_ASSUME_NONNULL_END

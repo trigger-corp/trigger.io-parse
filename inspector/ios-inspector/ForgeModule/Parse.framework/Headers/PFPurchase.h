@@ -9,6 +9,8 @@
 
 #import <Parse/PFConstants.h>
 
+@class PFProduct;
+
 /*!
  `PFPurchase` provides a set of APIs for working with in-app purchases.
 
@@ -72,5 +74,14 @@
  different installations of the same app.
  */
 + (void)restore;
+
+/*
+ @abstract Returns a content path of the asset of a product, if it was purchased and downloaded.
+
+ @discussion To download and verify purchases use <downloadAssetForTransaction:completion:>.
+
+ @warning This method will return `nil`, if the purchase wasn't verified or if the asset was not downloaded.
+ */
++ (NSString *)assetContentPathForProduct:(PFProduct *)product;
 
 @end

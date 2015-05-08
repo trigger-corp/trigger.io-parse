@@ -9,6 +9,10 @@
 #import "parse_API.h"
 #import "parse_Util.h"
 
+// TODO temporary until Parse/Facebook start using the same version of Bolts.framework
+// see: http://stackoverflow.com/questions/28898999/parse-api-1-6-4-cannot-build-project
+NSString *const BFTaskMultipleExceptionsException = @"BFMultipleExceptionsException";
+
 #import "Parse.h"
 
 @implementation parse_API
