@@ -3,9 +3,7 @@ package com.parse;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import com.google.gson.JsonObject;
 import io.trigger.forge.android.core.ForgeActivity;
 
@@ -17,12 +15,14 @@ import io.trigger.forge.android.modules.parse.Constant;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
-    private static final String PARSE_PREFS = "forge.parse.com";
-    private static final String MESSAGE_COUNTER_KEY = "messages.counter";
     private static final String UPDATE_NOTIFICATIONS_FEATURE = "updateNotifications";
+
+    static ArrayList<HashMap<String, String>> history = new ArrayList<HashMap<String, String>>();
 
     private boolean isUpdateNotificationsFeature() {
         JsonObject forgeConfig = ForgeApp.configForModule(Constant.MODULE_NAME);
@@ -33,7 +33,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
 
     @Override
     public void onPushOpen(Context context, Intent intent) {
-        ParseAnalytics.trackAppOpened(intent);
+        ParseAnalytics.trackAppOpenedInBackground(intent);
 
         Intent activity = new Intent(context, ForgeActivity.class);
         activity.putExtras(intent.getExtras());
@@ -41,64 +41,39 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         context.startActivity(activity);
 
         if (isUpdateNotificationsFeature()) {
-            setMessageNumber(context, 0);
+            history.clear();
         }
     }
 
     @Override
     protected void onPushDismiss(Context context, Intent intent) {
+        super.onPushDismiss(context, intent);
+
         if (isUpdateNotificationsFeature()) {
-            setMessageNumber(context, 0);
-        }
-    }
-
-    @Override
-    protected void onPushReceive(Context context, Intent intent) {
-        if (isUpdateNotificationsFeature() && VisibilityManager.isVisible()) {
-            return;
-        }
-
-        if (!isUpdateNotificationsFeature()) {
-            super.onPushReceive(context, intent);
-            return;
-        }
-
-        JSONObject pushData = null;
-
-        try {
-            pushData = new JSONObject(intent.getStringExtra("com.parse.Data"));
-        } catch (JSONException ex) {
-            ex.printStackTrace();
-            Log.e(Constant.LOGGER_TAG, "com.parse.ParsePushReceiver: Unexpected JSONException when receiving push data: " + ex.getMessage());
-        }
-
-        String action = null;
-        if(pushData != null) {
-            action = pushData.optString("action", (String)null);
-        }
-
-        if(action != null) {
-            Bundle extras = intent.getExtras();
-            Intent broadcastIntent = new Intent();
-            broadcastIntent.putExtras(extras);
-            broadcastIntent.setAction(action);
-            broadcastIntent.setPackage(context.getPackageName());
-            context.sendBroadcast(broadcastIntent);
-        }
-
-        Notification notification = this.getNotification(context, intent);
-
-        if(notification != null) {
-            this.showUpdatableNotification(context, notification);
+            history.clear();
         }
     }
 
     @Override
     protected Notification getNotification(Context context, Intent intent) {
+        if (!isUpdateNotificationsFeature()) {
+            return super.getNotification(context, intent);
+        } else if (VisibilityManager.isVisible()) {
+            return null;
+        } else {
+            buildAndShowUpdatableNotification(context, intent);
+            return null;
+        }
+    }
+
+    protected void buildAndShowUpdatableNotification(Context context, Intent intent) {
         JSONObject pushData = this.getPushData(intent);
         if(pushData != null && (pushData.has("alert") || pushData.has("title"))) {
-            String alert = pushData.optString("alert", "Notification received.");
-            String title = pushData.optString("title", ManifestInfo.getDisplayName());
+            HashMap<String, String> message = new HashMap<String, String>();
+            message.put("alert", pushData.optString("alert", "Notification received."));
+            message.put("title", pushData.optString("title", ManifestInfo.getDisplayName()));
+            history.add(message);
+
             Bundle extras = intent.getExtras();
             Random random = new Random();
             int contentIntentRequestCode = random.nextInt();
@@ -113,29 +88,30 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
             PendingIntent pContentIntent = PendingIntent.getBroadcast(context, contentIntentRequestCode, contentIntent, 134217728);
             PendingIntent pDeleteIntent = PendingIntent.getBroadcast(context, deleteIntentRequestCode, deleteIntent, 134217728);
 
-            ForgeNotificationCompat.Builder parseBuilder = new ForgeNotificationCompat.Builder(context);
-            parseBuilder.setContentTitle(title).setContentText(alert).setSmallIcon(this.getSmallIconId(context, intent)).setLargeIcon(this.getLargeIcon(context, intent)).setContentIntent(pContentIntent).setDeleteIntent(pDeleteIntent).setAutoCancel(true).setDefaults(-1);
-            setMessageCount(context, parseBuilder);
+            ForgeNotificationCompat.Builder builder = new ForgeNotificationCompat.Builder(context);
+            builder.setContentTitle(message.get("title"))
+                   .setContentText(message.get("alert"))
+                   .setSmallIcon(this.getSmallIconId(context, intent))
+                   .setLargeIcon(this.getLargeIcon(context, intent))
+                   .setContentIntent(pContentIntent)
+                   .setDeleteIntent(pDeleteIntent)
+                   .setAutoCancel(true)
+                   .setDefaults(-1);
 
-            if(alert != null && alert.length() > 38) {
-                parseBuilder.setStyle((new NotificationCompat.Builder.BigTextStyle()).bigText(alert));
+            if (history.size() > 1) {
+                ForgeNotificationCompat.Builder.InboxStyle inboxStyle = new ForgeNotificationCompat.Builder.InboxStyle();
+                inboxStyle.setSummaryText(history.size() + " messages received");
+                builder.setContentText(history.size() + " messages received");
+
+                // Add each form submission to the inbox list
+                for (int i = 0; i < history.size(); i++) {
+                    inboxStyle.addLine(history.get(i).get("alert"));
+                }
+                builder.setStyle(inboxStyle);
             }
 
-            return parseBuilder.build();
-        } else {
-            return null;
+            showUpdatableNotification(context, builder.build());
         }
-    }
-
-    protected SharedPreferences getSharedPreferences(Context context) {
-        return context.getSharedPreferences(PARSE_PREFS, Context.MODE_PRIVATE);
-    }
-
-    protected void setMessageNumber(Context context, int messageNumber) {
-        Log.d(Constant.LOGGER_TAG, "Message Number: " + messageNumber);
-        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
-        editor.putInt(MESSAGE_COUNTER_KEY, messageNumber);
-        editor.commit();
     }
 
     public void showUpdatableNotification(Context context, Notification notification) {
@@ -161,14 +137,5 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
             Parse.logE("com.parse.ParsePushReceiver", "Unexpected JSONException when receiving push data: ", var3);
             return null;
         }
-    }
-
-    private ForgeNotificationCompat.Builder setMessageCount(Context context, ForgeNotificationCompat.Builder parseBuilder) {
-        int messageNumber = 1 + getSharedPreferences(context).getInt(MESSAGE_COUNTER_KEY, 0);
-        setMessageNumber(context, messageNumber);
-        if (messageNumber > 1) {
-            parseBuilder.setNumber(messageNumber);
-        }
-        return parseBuilder;
     }
 }
