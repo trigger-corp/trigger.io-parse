@@ -4,6 +4,6 @@
 	"min_platform_version": "v2.2.0",
 	"namespace": "parse",
 	"platform_version": "v2.2.5",
-	"version": "2.7.5",
+	"version": "2.7",
 	"dependencies": {}
 }
