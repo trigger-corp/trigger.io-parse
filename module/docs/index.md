@@ -24,7 +24,7 @@ delayRegistration
 :	Don't register for remote notifications at app startup (iOS Only)
 
 updateNotifications
-:    Update notifications on Android with a message counter. This option also suppresses notification display while the app is visible line on iOS. (Android Only)
+:    Update notifications on Android using the Inbox Style. See [here](https://blog.safaribooksonline.com/2012/08/29/android-4-1-jelly-bean-notifications/) This option also suppresses notification display on Android while the app is visible. (Android Only)
 
 
 ##Concepts
