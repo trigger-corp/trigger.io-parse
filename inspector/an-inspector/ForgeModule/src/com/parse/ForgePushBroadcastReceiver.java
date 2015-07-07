@@ -71,7 +71,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         if(pushData != null && (pushData.has("alert") || pushData.has("title"))) {
             HashMap<String, String> message = new HashMap<String, String>();
             message.put("alert", pushData.optString("alert", "Notification received."));
-            message.put("title", pushData.optString("title", ManifestInfo.getDisplayName()));
+            message.put("title", pushData.optString("title", ManifestInfo.getDisplayName(context)));
             history.add(message);
 
             Bundle extras = intent.getExtras();
@@ -134,7 +134,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         try {
             return new JSONObject(intent.getStringExtra("com.parse.Data"));
         } catch (JSONException var3) {
-            Parse.logE("com.parse.ParsePushReceiver", "Unexpected JSONException when receiving push data: ", var3);
+            PLog.e("com.parse.ParsePushReceiver", "Unexpected JSONException when receiving push data: ", var3);
             return null;
         }
     }
