@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		711915CF1AFCAEDD00AF1F39 /* Parse in Frameworks */ = {isa = PBXBuildFile; fileRef = 711915CE1AFCAEDD00AF1F39 /* Parse */; };
+		713CE5741B4C11C00059E4B7 /* Parse in Frameworks */ = {isa = PBXBuildFile; fileRef = 713CE5731B4C11C00059E4B7 /* Parse */; };
 		B3127A6616AEF7370027B9B8 /* parse_API.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6116AEF7370027B9B8 /* parse_API.m */; };
 		B3127A6716AEF7370027B9B8 /* parse_EventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6316AEF7370027B9B8 /* parse_EventListener.m */; };
 		B3127A6816AEF7370027B9B8 /* parse_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6516AEF7370027B9B8 /* parse_Util.m */; };
@@ -21,32 +21,32 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		711915CE1AFCAEDD00AF1F39 /* Parse */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Parse; path = Parse.framework/Parse; sourceTree = "<group>"; };
-		711915D01AFCAEEC00AF1F39 /* Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse.framework/Headers/Parse.h; sourceTree = SOURCE_ROOT; };
-		711915D11AFCAEEC00AF1F39 /* PF_Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PF_Twitter.h; path = Parse.framework/Headers/PF_Twitter.h; sourceTree = SOURCE_ROOT; };
-		711915D21AFCAEEC00AF1F39 /* PFACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse.framework/Headers/PFACL.h; sourceTree = SOURCE_ROOT; };
-		711915D31AFCAEEC00AF1F39 /* PFAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAnalytics.h; path = Parse.framework/Headers/PFAnalytics.h; sourceTree = SOURCE_ROOT; };
-		711915D41AFCAEEC00AF1F39 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils.h; path = Parse.framework/Headers/PFAnonymousUtils.h; sourceTree = SOURCE_ROOT; };
-		711915D51AFCAEEC00AF1F39 /* PFCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCloud.h; path = Parse.framework/Headers/PFCloud.h; sourceTree = SOURCE_ROOT; };
-		711915D61AFCAEEC00AF1F39 /* PFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFConfig.h; path = Parse.framework/Headers/PFConfig.h; sourceTree = SOURCE_ROOT; };
-		711915D71AFCAEEC00AF1F39 /* PFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFConstants.h; path = Parse.framework/Headers/PFConstants.h; sourceTree = SOURCE_ROOT; };
-		711915D81AFCAEEC00AF1F39 /* PFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFFile.h; path = Parse.framework/Headers/PFFile.h; sourceTree = SOURCE_ROOT; };
-		711915D91AFCAEEC00AF1F39 /* PFGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse.framework/Headers/PFGeoPoint.h; sourceTree = SOURCE_ROOT; };
-		711915DA1AFCAEEC00AF1F39 /* PFInstallation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFInstallation.h; path = Parse.framework/Headers/PFInstallation.h; sourceTree = SOURCE_ROOT; };
-		711915DB1AFCAEEC00AF1F39 /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNetworkActivityIndicatorManager.h; path = Parse.framework/Headers/PFNetworkActivityIndicatorManager.h; sourceTree = SOURCE_ROOT; };
-		711915DC1AFCAEEC00AF1F39 /* PFNullability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNullability.h; path = Parse.framework/Headers/PFNullability.h; sourceTree = SOURCE_ROOT; };
-		711915DD1AFCAEEC00AF1F39 /* PFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFObject.h; path = Parse.framework/Headers/PFObject.h; sourceTree = SOURCE_ROOT; };
-		711915DE1AFCAEEC00AF1F39 /* PFObject+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse.framework/Headers/PFObject+Subclass.h"; sourceTree = SOURCE_ROOT; };
-		711915DF1AFCAEEC00AF1F39 /* PFProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFProduct.h; path = Parse.framework/Headers/PFProduct.h; sourceTree = SOURCE_ROOT; };
-		711915E01AFCAEEC00AF1F39 /* PFPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPurchase.h; path = Parse.framework/Headers/PFPurchase.h; sourceTree = SOURCE_ROOT; };
-		711915E11AFCAEEC00AF1F39 /* PFPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPush.h; path = Parse.framework/Headers/PFPush.h; sourceTree = SOURCE_ROOT; };
-		711915E21AFCAEEC00AF1F39 /* PFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFQuery.h; path = Parse.framework/Headers/PFQuery.h; sourceTree = SOURCE_ROOT; };
-		711915E31AFCAEEC00AF1F39 /* PFRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRelation.h; path = Parse.framework/Headers/PFRelation.h; sourceTree = SOURCE_ROOT; };
-		711915E41AFCAEEC00AF1F39 /* PFRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRole.h; path = Parse.framework/Headers/PFRole.h; sourceTree = SOURCE_ROOT; };
-		711915E51AFCAEEC00AF1F39 /* PFSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse.framework/Headers/PFSession.h; sourceTree = SOURCE_ROOT; };
-		711915E61AFCAEEC00AF1F39 /* PFSubclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSubclassing.h; path = Parse.framework/Headers/PFSubclassing.h; sourceTree = SOURCE_ROOT; };
-		711915E71AFCAEEC00AF1F39 /* PFTwitterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTwitterUtils.h; path = Parse.framework/Headers/PFTwitterUtils.h; sourceTree = SOURCE_ROOT; };
-		711915E81AFCAEEC00AF1F39 /* PFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse.framework/Headers/PFUser.h; sourceTree = SOURCE_ROOT; };
+		713CE55A1B4C11C00059E4B7 /* Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parse.h; sourceTree = "<group>"; };
+		713CE55B1B4C11C00059E4B7 /* PF_Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_Twitter.h; sourceTree = "<group>"; };
+		713CE55C1B4C11C00059E4B7 /* PFACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFACL.h; sourceTree = "<group>"; };
+		713CE55D1B4C11C00059E4B7 /* PFAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAnalytics.h; sourceTree = "<group>"; };
+		713CE55E1B4C11C00059E4B7 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAnonymousUtils.h; sourceTree = "<group>"; };
+		713CE55F1B4C11C00059E4B7 /* PFCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCloud.h; sourceTree = "<group>"; };
+		713CE5601B4C11C00059E4B7 /* PFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFConfig.h; sourceTree = "<group>"; };
+		713CE5611B4C11C00059E4B7 /* PFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFConstants.h; sourceTree = "<group>"; };
+		713CE5621B4C11C00059E4B7 /* PFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFile.h; sourceTree = "<group>"; };
+		713CE5631B4C11C00059E4B7 /* PFGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGeoPoint.h; sourceTree = "<group>"; };
+		713CE5641B4C11C00059E4B7 /* PFInstallation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstallation.h; sourceTree = "<group>"; };
+		713CE5651B4C11C00059E4B7 /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		713CE5661B4C11C00059E4B7 /* PFNullability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFNullability.h; sourceTree = "<group>"; };
+		713CE5671B4C11C00059E4B7 /* PFObject+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+Subclass.h"; sourceTree = "<group>"; };
+		713CE5681B4C11C00059E4B7 /* PFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFObject.h; sourceTree = "<group>"; };
+		713CE5691B4C11C00059E4B7 /* PFProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProduct.h; sourceTree = "<group>"; };
+		713CE56A1B4C11C00059E4B7 /* PFPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchase.h; sourceTree = "<group>"; };
+		713CE56B1B4C11C00059E4B7 /* PFPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPush.h; sourceTree = "<group>"; };
+		713CE56C1B4C11C00059E4B7 /* PFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQuery.h; sourceTree = "<group>"; };
+		713CE56D1B4C11C00059E4B7 /* PFRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRelation.h; sourceTree = "<group>"; };
+		713CE56E1B4C11C00059E4B7 /* PFRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRole.h; sourceTree = "<group>"; };
+		713CE56F1B4C11C00059E4B7 /* PFSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSession.h; sourceTree = "<group>"; };
+		713CE5701B4C11C00059E4B7 /* PFSubclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSubclassing.h; sourceTree = "<group>"; };
+		713CE5711B4C11C00059E4B7 /* PFTwitterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTwitterUtils.h; sourceTree = "<group>"; };
+		713CE5721B4C11C00059E4B7 /* PFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFUser.h; sourceTree = "<group>"; };
+		713CE5731B4C11C00059E4B7 /* Parse */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Parse; path = Parse.framework/Parse; sourceTree = "<group>"; };
 		B3127A6016AEF7370027B9B8 /* parse_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_API.h; sourceTree = "<group>"; };
 		B3127A6116AEF7370027B9B8 /* parse_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parse_API.m; sourceTree = "<group>"; };
 		B3127A6216AEF7370027B9B8 /* parse_EventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_EventListener.h; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				B3FC51F815C151E5003574D9 /* UIKit.framework in Frameworks */,
 				B31B6D5215C13D5200854074 /* Foundation.framework in Frameworks */,
 				B37C3A5D162717A200B50A60 /* ForgeCore.framework in Frameworks */,
-				711915CF1AFCAEDD00AF1F39 /* Parse in Frameworks */,
+				713CE5741B4C11C00059E4B7 /* Parse in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,43 +93,43 @@
 		7137AC1D19B5D655004C1F22 /* Parse.framework */ = {
 			isa = PBXGroup;
 			children = (
-				711915CE1AFCAEDD00AF1F39 /* Parse */,
-				71EECFB119B5E4CA0058CF2B /* Headers */,
+				713CE5591B4C11C00059E4B7 /* Headers */,
+				713CE5731B4C11C00059E4B7 /* Parse */,
 			);
 			name = Parse.framework;
 			sourceTree = "<group>";
 		};
-		71EECFB119B5E4CA0058CF2B /* Headers */ = {
+		713CE5591B4C11C00059E4B7 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				711915D01AFCAEEC00AF1F39 /* Parse.h */,
-				711915D11AFCAEEC00AF1F39 /* PF_Twitter.h */,
-				711915D21AFCAEEC00AF1F39 /* PFACL.h */,
-				711915D31AFCAEEC00AF1F39 /* PFAnalytics.h */,
-				711915D41AFCAEEC00AF1F39 /* PFAnonymousUtils.h */,
-				711915D51AFCAEEC00AF1F39 /* PFCloud.h */,
-				711915D61AFCAEEC00AF1F39 /* PFConfig.h */,
-				711915D71AFCAEEC00AF1F39 /* PFConstants.h */,
-				711915D81AFCAEEC00AF1F39 /* PFFile.h */,
-				711915D91AFCAEEC00AF1F39 /* PFGeoPoint.h */,
-				711915DA1AFCAEEC00AF1F39 /* PFInstallation.h */,
-				711915DB1AFCAEEC00AF1F39 /* PFNetworkActivityIndicatorManager.h */,
-				711915DC1AFCAEEC00AF1F39 /* PFNullability.h */,
-				711915DD1AFCAEEC00AF1F39 /* PFObject.h */,
-				711915DE1AFCAEEC00AF1F39 /* PFObject+Subclass.h */,
-				711915DF1AFCAEEC00AF1F39 /* PFProduct.h */,
-				711915E01AFCAEEC00AF1F39 /* PFPurchase.h */,
-				711915E11AFCAEEC00AF1F39 /* PFPush.h */,
-				711915E21AFCAEEC00AF1F39 /* PFQuery.h */,
-				711915E31AFCAEEC00AF1F39 /* PFRelation.h */,
-				711915E41AFCAEEC00AF1F39 /* PFRole.h */,
-				711915E51AFCAEEC00AF1F39 /* PFSession.h */,
-				711915E61AFCAEEC00AF1F39 /* PFSubclassing.h */,
-				711915E71AFCAEEC00AF1F39 /* PFTwitterUtils.h */,
-				711915E81AFCAEEC00AF1F39 /* PFUser.h */,
+				713CE55A1B4C11C00059E4B7 /* Parse.h */,
+				713CE55B1B4C11C00059E4B7 /* PF_Twitter.h */,
+				713CE55C1B4C11C00059E4B7 /* PFACL.h */,
+				713CE55D1B4C11C00059E4B7 /* PFAnalytics.h */,
+				713CE55E1B4C11C00059E4B7 /* PFAnonymousUtils.h */,
+				713CE55F1B4C11C00059E4B7 /* PFCloud.h */,
+				713CE5601B4C11C00059E4B7 /* PFConfig.h */,
+				713CE5611B4C11C00059E4B7 /* PFConstants.h */,
+				713CE5621B4C11C00059E4B7 /* PFFile.h */,
+				713CE5631B4C11C00059E4B7 /* PFGeoPoint.h */,
+				713CE5641B4C11C00059E4B7 /* PFInstallation.h */,
+				713CE5651B4C11C00059E4B7 /* PFNetworkActivityIndicatorManager.h */,
+				713CE5661B4C11C00059E4B7 /* PFNullability.h */,
+				713CE5671B4C11C00059E4B7 /* PFObject+Subclass.h */,
+				713CE5681B4C11C00059E4B7 /* PFObject.h */,
+				713CE5691B4C11C00059E4B7 /* PFProduct.h */,
+				713CE56A1B4C11C00059E4B7 /* PFPurchase.h */,
+				713CE56B1B4C11C00059E4B7 /* PFPush.h */,
+				713CE56C1B4C11C00059E4B7 /* PFQuery.h */,
+				713CE56D1B4C11C00059E4B7 /* PFRelation.h */,
+				713CE56E1B4C11C00059E4B7 /* PFRole.h */,
+				713CE56F1B4C11C00059E4B7 /* PFSession.h */,
+				713CE5701B4C11C00059E4B7 /* PFSubclassing.h */,
+				713CE5711B4C11C00059E4B7 /* PFTwitterUtils.h */,
+				713CE5721B4C11C00059E4B7 /* PFUser.h */,
 			);
 			name = Headers;
-			path = Parse.framework/Versions/A/Headers;
+			path = Parse.framework/Headers;
 			sourceTree = "<group>";
 		};
 		B31B6D4315C13D5200854074 = {
@@ -278,6 +278,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -315,6 +316,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -336,6 +338,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -351,6 +354,7 @@
 					"$(PROJECT_DIR)/Parse.framework/Versions/A",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Parse.framework",
+					"$(PROJECT_DIR)/Bolts.framework",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,6 +369,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -380,6 +385,7 @@
 					"$(PROJECT_DIR)/Parse.framework/Versions/A",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Parse.framework",
+					"$(PROJECT_DIR)/Bolts.framework",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

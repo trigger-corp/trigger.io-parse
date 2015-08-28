@@ -4,14 +4,16 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.os.Bundle;
-import com.google.gson.JsonObject;
-import io.trigger.forge.android.core.ForgeActivity;
 
+import com.google.gson.JsonObject;
+
+import io.trigger.forge.android.core.ForgeActivity;
+import io.trigger.forge.android.core.ForgeLog;
 import android.content.Context;
 import android.content.Intent;
-
 import io.trigger.forge.android.core.ForgeApp;
 import io.trigger.forge.android.modules.parse.Constant;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -135,8 +137,8 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private JSONObject getPushData(Intent intent) {
         try {
             return new JSONObject(intent.getStringExtra("com.parse.Data"));
-        } catch (JSONException var3) {
-            PLog.e("com.parse.ParsePushReceiver", "Unexpected JSONException when receiving push data: ", var3);
+        } catch (JSONException e) {
+            ForgeLog.e("com.parse.ParsePushReceiver: Unexpected JSONException when receiving push data: " + e.getLocalizedMessage());
             return null;
         }
     }
