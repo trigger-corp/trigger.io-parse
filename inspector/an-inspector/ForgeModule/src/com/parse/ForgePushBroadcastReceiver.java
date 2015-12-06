@@ -29,8 +29,9 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private boolean isUpdateNotificationsFeature() {
         JsonObject forgeConfig = ForgeApp.configForModule(Constant.MODULE_NAME);
 
-        return forgeConfig.has(UPDATE_NOTIFICATIONS_FEATURE) &&
-                forgeConfig.get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
+        return forgeConfig.has("android") && 
+			forgeConfig.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
+			forgeConfig.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
     }
 
     @Override

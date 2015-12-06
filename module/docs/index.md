@@ -23,8 +23,16 @@ clientKey
 delayRegistration
 :	Don't register for remote notifications at app startup (iOS Only)
 
-updateNotifications
-:    Update notifications on Android using the Inbox Style. See [here](https://blog.safaribooksonline.com/2012/08/29/android-4-1-jelly-bean-notifications/) This option also suppresses notification display on Android while the app is visible. (Android Only)
+###Android
+
+Update Notifications
+:    Update notifications on Android using the Inbox Style. This option also suppresses notification display on Android while the app is visible.  [More information.](https://blog.safaribooksonline.com/2012/08/29/android-4-1-jelly-bean-notifications/)
+
+Notification Icon
+:	Choose `icon` to use the app icon or `custom_push_icon` to use a custom icon for notifications.
+
+24, 36, 48, 72, 96
+:	Paths to the icons used if you have enabled a custom push notification icon.
 
 
 ##Concepts

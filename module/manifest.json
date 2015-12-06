@@ -1,9 +1,9 @@
 {
-	"changes": "* Update Parse Android SDK to v1.9.4\n",
+	"changes": "* Added a configuration section to specify a custom push icons for Android\n* Moved `updateNotification` configuration option to `android` section.\n* Updated some deprecated methods to support `android-23`",
 	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-	"min_platform_version": "v2.2.13",
+	"min_platform_version": "v2.2.16",
 	"namespace": "parse",
-	"platform_version": "v2.2.13",
-	"version": "2.9",
+	"platform_version": "v2.2.16",
+	"version": "2.11",
 	"dependencies": {}
 }

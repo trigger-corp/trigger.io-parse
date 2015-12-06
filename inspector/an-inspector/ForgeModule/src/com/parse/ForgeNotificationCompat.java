@@ -136,10 +136,13 @@ public class ForgeNotificationCompat extends NotificationCompat {
     }
 
     public Notification build(NotificationCompat.Builder b) {
-      Notification result = b.mNotification;
-      result.setLatestEventInfo(b.mContext, b.mContentTitle, b.mContentText, b.mContentIntent);
-      if(b.mPriority > 0) {
-        result.flags |= 128;
+    	Notification result = new Notification.Builder(b.mContext)
+        	.setContentTitle(b.mContentTitle)
+        	.setContentText(b.mContentText)
+        	.setContentIntent(b.mContentIntent)
+        	.build();
+      if (b.mPriority > 0) {
+    	  result.flags |= 128;
       }
 
       return result;
