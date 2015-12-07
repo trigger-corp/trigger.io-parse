@@ -111,6 +111,8 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
                     inboxStyle.addLine(history.get(i).get("alert"));
                 }
                 builder.setStyle(inboxStyle);
+            } else {
+                builder.setStyle(new NotificationCompat.Builder.BigTextStyle().bigText(message.get("alert")));
             }
 
             showUpdatableNotification(context, builder.build());
