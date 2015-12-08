@@ -28,6 +28,9 @@ delayRegistration
 Update Notifications
 :    Update notifications on Android using the Inbox Style. This option also suppresses notification display on Android while the app is visible.  [More information.](https://blog.safaribooksonline.com/2012/08/29/android-4-1-jelly-bean-notifications/)
 
+Background Color
+:   Use a custom color for the background for your notification icon, e.g. #303045. (Android 5.0+ only)
+
 Notification Icon
 :	Choose `icon` to use the app icon or `custom_push_icon` to use a custom icon for notifications.
 

@@ -38,6 +38,14 @@
 					"type": "boolean",
 					"title": "Update Notifications"
 				},
+				"background-color": {
+					"_order": 2,
+                    "type": "string",
+                    "required": false,
+                    "description": "Use a custom color for the background for your notification icon, e.g. #303045. Android 5.0+ only.",
+                    "pattern": "^#[\\da-fA-F]{6}$",
+					"title": "Background Color"
+                },
 				"notification_icon": {
 					"_order": 10,
                     "type": "string",

@@ -9,7 +9,8 @@
 				"48": "fixtures/parse/icons/48.png",
 				"72": "fixtures/parse/icons/72.png",
 				"96": "fixtures/parse/icons/96.png",
-				"notification_icon": "custom_push_icon"
+				"notification_icon": "custom_push_icon",
+				"background-color": "#5555ff"
 			}
 		}
 	},

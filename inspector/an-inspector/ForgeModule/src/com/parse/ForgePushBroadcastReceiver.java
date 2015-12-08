@@ -3,6 +3,7 @@ package com.parse;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.gson.JsonObject;
@@ -11,6 +12,7 @@ import io.trigger.forge.android.core.ForgeActivity;
 import io.trigger.forge.android.core.ForgeLog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import io.trigger.forge.android.core.ForgeApp;
 import io.trigger.forge.android.modules.parse.Constant;
 
@@ -27,11 +29,25 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     static ArrayList<HashMap<String, String>> history = new ArrayList<HashMap<String, String>>();
 
     private boolean isUpdateNotificationsFeature() {
-        JsonObject forgeConfig = ForgeApp.configForModule(Constant.MODULE_NAME);
+        JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
 
-        return forgeConfig.has("android") && 
-			forgeConfig.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
-			forgeConfig.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
+        return config.has("android") && 
+        	   config.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
+       		   config.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
+    }
+    
+    private Notification setBackgroundColor(Notification notification) {
+    	JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
+    	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+    		config.has("android") &&
+    		config.getAsJsonObject("android").has("background-color")) {
+    		try {
+    			notification.color = Color.parseColor(config.getAsJsonObject("android").get("background-color").getAsString());
+    		} catch (IllegalArgumentException e) {
+                ForgeLog.e("Invalid color string for parse.android.background-color: " + e.getMessage());
+            }
+    	} 
+		return notification;
     }
 
     @Override
@@ -60,7 +76,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     @Override
     protected Notification getNotification(Context context, Intent intent) {
         if (!isUpdateNotificationsFeature()) {
-            return super.getNotification(context, intent);
+            return setBackgroundColor(super.getNotification(context, intent));
         } else if (VisibilityManager.isVisible()) {
             return null;
         } else {
@@ -115,7 +131,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
             	builder.setStyle(new NotificationCompat.Builder.BigTextStyle().bigText(message.get("alert")));
             }
 
-            showUpdatableNotification(context, builder.build());
+            showUpdatableNotification(context, setBackgroundColor(builder.build()));
         }
     }
 
