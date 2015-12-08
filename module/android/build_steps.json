@@ -148,7 +148,7 @@
                         }, {
                             "tag": "category",
                             "attributes": {
-                                "android:name": "io.trigger.forge.android.inspector"
+                                "android:name": "{{core.android.package_name}}"
                             }
                         }]
                     }]
@@ -167,12 +167,12 @@
                 "element": {
                     "tag": "permission",
                     "attributes": {
-                        "android:name": "io.trigger.forge.android.inspector.permission.C2D_MESSAGE",
+                        "android:name": "{{core.android.package_name}}.permission.C2D_MESSAGE",
                         "android:protectionLevel": "signature"
                     }
                 }
             } 
         } 
     },
-    { "do": { "android_add_permission": { "permission": "io.trigger.forge.android.inspector.permission.C2D_MESSAGE" } } }
+    { "do": { "android_add_permission": { "permission": "{{core.android.package_name}}.permission.C2D_MESSAGE" } } }
 ]

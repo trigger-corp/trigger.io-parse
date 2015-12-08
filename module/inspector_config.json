@@ -4,11 +4,11 @@
 			"applicationId": "TPMPKPXNzTmfmDayiT9J4alyiWImb3SaTdMJ8vOy",
 			"clientKey": "yjksLK4Rvzlvp4kxUxQdVat8jkssA6vVdGQIncma",
 			"android": {
-				"24": "fixtures/icons/24.png",
-				"36": "fixtures/icons/36.png",
-				"48": "fixtures/icons/48.png",
-				"72": "fixtures/icons/72.png",
-				"96": "fixtures/icons/96.png",
+				"24": "fixtures/parse/icons/24.png",
+				"36": "fixtures/parse/icons/36.png",
+				"48": "fixtures/parse/icons/48.png",
+				"72": "fixtures/parse/icons/72.png",
+				"96": "fixtures/parse/icons/96.png",
 				"notification_icon": "custom_push_icon"
 			}
 		}
@@ -21,5 +21,10 @@
 				"displayName": "Trigger.io Inspector"
 			}
 		}
-	}
+	},
+	"core": {
+        "android": {
+            "package_name": "io.trigger.forge.android.inspector"
+        }
+    }
 }
