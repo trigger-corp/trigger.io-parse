@@ -9,8 +9,17 @@ back-end](http://trigger.io/cross-platform-application-development-blog/2012/03/
 
 Parse push notifications are integrated directly Forge. Other Parse features may be accessed by using [forge.request.ajax](/modules/request/current/docs/index.html#forgerequestajaxoptions) with the [Parse REST API](https://parse.com/docs/rest).
 
-> ::Important:: Following the acquisition of Parse by Facebook, you will also need to include the [facebook](/modules/facebook) module to compile your app with version `2.3` or newer of this module.
+> ::Note:: Following the acquisition of Parse by Facebook, you will also need to include the [facebook](/modules/facebook) module to compile your app with version `2.3` or newer of this module.
 
+----
+
+#### ::Important:: Parse is shutting down and will be fully retired on 28 January 2017!
+
+#### If you are currently using Parse for sending push notifications please consider getting in touch with the lovely folk at [Pushwoosh](https://www.pushwoosh.com) and migrate your app to the [Pushwoosh module](https://trigger.io/modules/pushwoosh/current/docs/index.html).
+ 
+#### For more information please see the [original announcement](http://blog.parse.com/announcements/moving-on/) from Parse.
+
+----
 
 ##Config options
 
