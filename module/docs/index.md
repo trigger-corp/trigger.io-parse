@@ -16,7 +16,9 @@ Parse push notifications are integrated directly Forge. Other Parse features may
 #### ::Important:: Parse is shutting down and will be fully retired on 28 January 2017!
 
 #### If you are currently using Parse for sending push notifications please consider getting in touch with the lovely folk at [Pushwoosh](https://www.pushwoosh.com) and migrate your app to the [Pushwoosh module](https://trigger.io/modules/pushwoosh/current/docs/index.html).
- 
+
+#### If you are currently using Parse's application backend services do take a look at [Firebase](https://www.firebase.com). Firebase offers an extremely powerful REST API that can integrate directly with your Forge App without requiring any native module support.
+
 #### For more information please see the [original announcement](http://blog.parse.com/announcements/moving-on/) from Parse.
 
 ----
