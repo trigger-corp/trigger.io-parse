@@ -7,7 +7,7 @@
 //
 
 #import "parse_Util.h"
-#import "Parse.h"
+#import "Parse/Parse.h"
 
 static NSDictionary* launchOptions;
 static NSDictionary* lastNotif;
@@ -18,17 +18,26 @@ static NSDictionary* lastNotif;
 	launchOptions = launchOptionsDict != NULL ? [NSDictionary dictionaryWithDictionary:launchOptionsDict] : NULL;
 }
 
-+ (void)registerForNotifications:(UIApplication*)application applicationId:(NSString*)applicationId clientKey:(NSString*)clientKey {
-	[Parse setApplicationId:applicationId clientKey:clientKey];
++ (void)registerForNotifications:(UIApplication*)application server:(NSString*)server applicationId:(NSString*)applicationId clientKey:(NSString*)clientKey {
+  
+  if (!server) {
+    server = @"https://api.parse.com/1";
+  }
+  
+  [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+    configuration.applicationId = applicationId;
+    configuration.clientKey = clientKey;
+    configuration.server = server;
+  }]];
+  
+  if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound|UIUserNotificationTypeAlert|UIUserNotificationTypeBadge) categories:nil]];
+    [application registerForRemoteNotifications];
     
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound|UIUserNotificationTypeAlert|UIUserNotificationTypeBadge) categories:nil]];
-        [application registerForRemoteNotifications];
-        
-    } else {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
-    }
-    
+  } else {
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
+  }
+  
 	if (launchOptions != NULL && [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil) {
 		[parse_Util notifRecieved:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
 		[parse_Util triggerMessagePushedEvent];

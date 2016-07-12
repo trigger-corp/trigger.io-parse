@@ -9,7 +9,7 @@
 #import "parse_API.h"
 #import "parse_Util.h"
 
-#import "Parse.h"
+#import "Parse/Parse.h"
 
 @implementation parse_API
 
@@ -83,6 +83,7 @@
 
 	if (delayRegistration) {
         [parse_Util registerForNotifications:[UIApplication sharedApplication]
+                                      server:[config objectForKey:@"server"]
                                applicationId:[config objectForKey:@"applicationId"]
                                    clientKey:[config objectForKey:@"clientKey"]];
 		[task success:nil];

@@ -8,7 +8,7 @@
 
 #import "parse_EventListener.h"
 #import "parse_Util.h"
-#import "Parse.h"
+#import "Parse/Parse.h"
 
 @implementation parse_EventListener
 
@@ -25,8 +25,10 @@
 	Boolean registeredForNotifications = [prefs boolForKey:@"parse_registeredForNotifications"];
 
 	if (!delayRegistration || registeredForNotifications) {
-		[parse_Util registerForNotifications:application
-                               applicationId:[config objectForKey:@"applicationId"]
+		[parse_Util registerForNotifications:
+                   application
+                   server:[config objectForKey:@"server"]
+                   applicationId:[config objectForKey:@"applicationId"]
 								   clientKey:[config objectForKey:@"clientKey"]];
 	}
 }

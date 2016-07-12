@@ -2,17 +2,24 @@
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
+		"server": {
+		  "_order": 9,
+		  "required": false,
+		  "description": "Endpoint of the Parse Server to use. If not set 'https://api.parse.com/1/' will be used.",
+		  "type": "string",
+		  "title": "Server"
+		},
 		"applicationId": {
 			"_order": 10,
 			"required": true,
-			"description": "Application ID from parse.com",
+			"description": "Application ID from Parse Server (selfhosted or parse.com)",
 			"type": "string",
 			"title": "Application Id"
 		},
 		"clientKey": {
 			"_order": 20,
 			"required": true,
-			"description": "Client key from parse.com",
+			"description": "Client key from Parse Server (selfhosted or parse.com)",
 			"type": "string",
 			"title": "Client Key"
 		},

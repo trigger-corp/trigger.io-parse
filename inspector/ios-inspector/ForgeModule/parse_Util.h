@@ -13,7 +13,7 @@
 }
 
 + (void)setLaunchOptions:(NSDictionary*) launchOptions;
-+ (void)registerForNotifications:(UIApplication*)application applicationId:(NSString*)applicationId clientKey:(NSString*)clientKey;
++ (void)registerForNotifications:(UIApplication*)application server:(NSString*)server applicationId:(NSString*)applicationId clientKey:(NSString*)clientKey;
 + (void)notifRecieved:(NSDictionary*)userInfo;
 + (void)triggerMessagePushedEvent;
 

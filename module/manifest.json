@@ -1,9 +1,9 @@
 {
-	"changes": "* New config option `android.background-color`.\n* Use big text style if there is only one Android notification\n* Fixed: Push notifications were not working on Forge beta branch.\n* Updated Parse Android SDK to v1.11.0",
+	"changes": "* Updated Parse Android and iOS SDK to v1.13.1 supporting selfhosted ParserServers\n* Removed Facebook dependency",
+	"dependencies": {},
 	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-	"min_platform_version": "v2.2.16",
+	"min_platform_version": "v2.4.5",
 	"namespace": "parse",
-	"platform_version": "v2.2.16",
-	"version": "2.12",
-	"dependencies": {}
+	"platform_version": "v2.4.5",
+	"version": "2.13"
 }

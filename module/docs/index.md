@@ -15,7 +15,7 @@ Parse push notifications are integrated directly Forge. Other Parse features may
 
 #### ::Important:: Parse is shutting down and will be fully retired on 28 January 2017!
 
-#### If you are currently using Parse for sending push notifications please consider getting in touch with the lovely folk at [Pushwoosh](https://www.pushwoosh.com) and migrate your app to the [Pushwoosh module](https://trigger.io/modules/pushwoosh/current/docs/index.html).
+#### If you are currently using Parse for sending push notifications please consider getting in touch with the lovely folk at [Pushwoosh](https://www.pushwoosh.com) and migrate your app to the [Pushwoosh module](https://trigger.io/modules/pushwoosh/current/docs/index.html), or setup your own ParseServer.
 
 #### If you are currently using Parse's application backend services do take a look at [Firebase](https://www.firebase.com). Firebase offers an extremely powerful REST API that can integrate directly with your Forge App without requiring any native module support.
 
@@ -24,6 +24,9 @@ Parse push notifications are integrated directly Forge. Other Parse features may
 ----
 
 ##Config options
+
+server
+:   The api endpoint of the Parse Server (Optional: use for self-hosted Parse Server).
 
 applicationId
 :   An application ID from [parse.com](https://parse.com/).
@@ -141,7 +144,7 @@ following methods to manage which channels a user is subscribed to.
     });
 
 > ::Important:: In previous verions of Forge, the parse module was exposed as ``forge.partners.parse``.
-To ease transition to v2 of Forge, ``forge.partners.parse`` is an alias of ``forge.parse``. However use of 
+To ease transition to v2 of Forge, ``forge.partners.parse`` is an alias of ``forge.parse``. However use of
 the ``forge.partners.parse`` form is deprecated and should be changed to just ``forge.parse``.
 
 !method: forge.parse.setBadgeNumber(number, success, error)
@@ -162,7 +165,7 @@ notification.
 !param: error `function(content)` called with details of any error which may occur
 
 !method: forge.parse.registerForNotifications(success, error)
-!param: success Called if the request is successful. 
+!param: success Called if the request is successful.
 !description: When used in conjunction with the config option `delayRegistration` this function can be used to delay the appearance of the notifications confirmation dialog until such time as this function is called rather than the first time the app is run.
 !platforms: iOS
 !param: error `function(content)` called with details of any error which may occur

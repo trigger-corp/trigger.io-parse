@@ -31,11 +31,11 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private boolean isUpdateNotificationsFeature() {
         JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
 
-        return config.has("android") && 
+        return config.has("android") &&
         	   config.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
        		   config.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
     }
-    
+
     private Notification setBackgroundColor(Notification notification) {
     	JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
     	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
@@ -46,7 +46,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     		} catch (IllegalArgumentException e) {
                 ForgeLog.e("Invalid color string for parse.android.background-color: " + e.getMessage());
             }
-    	} 
+    	}
 		return notification;
     }
 
@@ -138,7 +138,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     public void showUpdatableNotification(Context context, Notification notification) {
         if(context != null && notification != null) {
             if(context != null && notification != null) {
-                NotificationManager nm = (NotificationManager)context.getSystemService("notification");
+                NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
                 int notificationId = 1;
 
                 try {
