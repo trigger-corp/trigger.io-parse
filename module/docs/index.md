@@ -9,18 +9,6 @@ back-end](http://trigger.io/cross-platform-application-development-blog/2012/03/
 
 Parse push notifications are integrated directly Forge. Other Parse features may be accessed by using [forge.request.ajax](/modules/request/current/docs/index.html#forgerequestajaxoptions) with the [Parse REST API](https://parse.com/docs/rest).
 
-> ::Note:: Following the acquisition of Parse by Facebook, you will also need to include the [facebook](/modules/facebook) module to compile your app with version `2.3` or newer of this module.
-
-----
-
-#### ::Important:: Parse is shutting down and will be fully retired on 28 January 2017!
-
-#### If you are currently using Parse for sending push notifications please consider getting in touch with the lovely folk at [Pushwoosh](https://www.pushwoosh.com) and migrate your app to the [Pushwoosh module](https://trigger.io/modules/pushwoosh/current/docs/index.html), or setup your own ParseServer.
-
-#### If you are currently using Parse's application backend services do take a look at [Firebase](https://www.firebase.com). Firebase offers an extremely powerful REST API that can integrate directly with your Forge App without requiring any native module support.
-
-#### For more information please see the [original announcement](http://blog.parse.com/announcements/moving-on/) from Parse.
-
 ----
 
 ##Config options
@@ -54,7 +42,7 @@ Notification Icon
 
 ##Concepts
 
-> ::Important:: In order to use this module you'll need to register an app at [parse.com](https://parse.com/).
+> ::Important:: In order to use this module you'll need to either [host your own instance of the Open Source Parse Server](https://github.com/ParsePlatform/parse-server/wiki/Parse-Server-Guide) or make use of one of the many available [hosted solutions](https://www.quora.com/Is-there-anyone-offering-Parse-com-hosting-now-that-Facebook-is-going-to-shut-Parse-com-down).
 
 Push notifications received through Parse can be used with the generic
 push notification event in Forge, see the [event API](/docs/current/api/core/event.html) for
@@ -63,9 +51,9 @@ to a user when a push notification is received.
 
 **Example**:
 
-    forge.event.messagePushed.addListener(function (msg) {
-        alert(msg.alert);
-    });
+	forge.event.messagePushed.addListener(function (msg) {
+		alert(msg.alert);
+	});
 
 You can try out sending a push notification from your app's control
 panel at [parse.com](https://parse.com).
@@ -86,9 +74,9 @@ following methods to manage which channels a user is subscribed to.
 
 **Example**:
 
-    forge.parse.installationInfo(function (info) {
-        forge.logging.info("installation: "+JSON.stringify(info));
-    });
+	forge.parse.installationInfo(function (info) {
+		forge.logging.info("installation: "+JSON.stringify(info));
+	});
 
 !method: forge.parse.push.subscribe(channel, success, error)
 !param: channel `string` identifier of the channel to subscribe to
@@ -99,14 +87,14 @@ following methods to manage which channels a user is subscribed to.
 
 **Example**:
 
-    forge.parse.push.subscribe("beta-testers",
-    function () {
-      forge.logging.info("subscribed to beta-tester push notifications!");
-    },
-    function (err) {
-      forge.logging.error("error subscribing to beta-tester notifications: "+
-        JSON.stringify(err));
-    });
+	forge.parse.push.subscribe("beta-testers",
+	function () {
+	  forge.logging.info("subscribed to beta-tester push notifications!");
+	},
+	function (err) {
+	  forge.logging.error("error subscribing to beta-tester notifications: "+
+		JSON.stringify(err));
+	});
 
 !method: forge.parse.push.unsubscribe(channel, success, error)
 !param: channel `string` identifier of the channel to unsubscribe from
@@ -117,14 +105,14 @@ following methods to manage which channels a user is subscribed to.
 
 **Example**:
 
-    forge.parse.push.unsubscribe("beta-testers",
-    function () {
-      forge.logging.info("no more beta-tester notifications...");
-    },
-    function (err) {
-      forge.logging.error("couldn't unsubscribe from beta-tester notifications: "+
-        JSON.stringify(err));
-    });
+	forge.parse.push.unsubscribe("beta-testers",
+	function () {
+	  forge.logging.info("no more beta-tester notifications...");
+	},
+	function (err) {
+	  forge.logging.error("couldn't unsubscribe from beta-tester notifications: "+
+		JSON.stringify(err));
+	});
 
 !method: forge.parse.push.subscribedChannels(success, error)
 !param: success `function(channels)` called with an array of subscribed channels
@@ -134,14 +122,14 @@ following methods to manage which channels a user is subscribed to.
 
 **Example**:
 
-    forge.parse.push.subscribedChannels(
-    function (channels) {
-      forge.logging.info("subscribed to: "+JSON.stringify(channels));
-    },
-    function (err) {
-      forge.logging.error("couldn't retrieve subscribed channels: "+
-        JSON.stringify(err));
-    });
+	forge.parse.push.subscribedChannels(
+	function (channels) {
+	  forge.logging.info("subscribed to: "+JSON.stringify(channels));
+	},
+	function (err) {
+	  forge.logging.error("couldn't retrieve subscribed channels: "+
+		JSON.stringify(err));
+	});
 
 > ::Important:: In previous verions of Forge, the parse module was exposed as ``forge.partners.parse``.
 To ease transition to v2 of Forge, ``forge.partners.parse`` is an alias of ``forge.parse``. However use of

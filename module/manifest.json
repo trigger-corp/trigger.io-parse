@@ -1,5 +1,5 @@
 {
-	"changes": "* Updated Parse Android and iOS SDK to v1.13.1 supporting selfhosted ParserServers\n* Removed Facebook dependency",
+	"changes": "* Updated Parse Android and iOS SDK to v1.13.1 supporting self-hosted Parse Servers.\n* Removed Facebook dependency",
 	"dependencies": {},
 	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
 	"min_platform_version": "v2.4.5",
