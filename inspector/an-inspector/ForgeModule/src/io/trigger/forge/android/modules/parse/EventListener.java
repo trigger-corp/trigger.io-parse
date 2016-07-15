@@ -1,5 +1,6 @@
 package io.trigger.forge.android.modules.parse;
 
+import com.google.gson.JsonElement;
 import com.parse.*;
 import io.trigger.forge.android.core.ForgeApp;
 import io.trigger.forge.android.core.ForgeEventListener;
@@ -11,10 +12,22 @@ import com.google.gson.JsonParser;
 public class EventListener extends ForgeEventListener {
 	@Override
 	public void onApplicationCreate() {
-		Parse.initialize(ForgeApp.getApp(),
-						ForgeApp.configForPlugin(Constant.MODULE_NAME).get("applicationId").getAsString(),
-						ForgeApp.configForPlugin(Constant.MODULE_NAME).get("clientKey").getAsString());
-		ParseInstallation.getCurrentInstallation().saveInBackground();
+
+    final String server = ForgeApp.configForPlugin(Constant.MODULE_NAME).has("server")
+        ? ForgeApp.configForPlugin(Constant.MODULE_NAME).get("server").getAsString()
+        : "https://api.parse.com/1/";
+
+    final Parse.Configuration configuration = new Parse.Configuration.Builder(ForgeApp.getApp())
+        .server(server)
+        .applicationId(ForgeApp.configForPlugin(Constant.MODULE_NAME).get("applicationId").getAsString())
+        .clientKey(ForgeApp.configForPlugin(Constant.MODULE_NAME).get("clientKey").getAsString())
+        .build();
+
+    ForgeLog.d("com.parse.push initializing with server: " + server);
+
+    Parse.initialize(configuration);
+
+    ParseInstallation.getCurrentInstallation().saveInBackground();
 		ParsePush.subscribeInBackground("", new SaveCallback() {
 			@Override
 			public void done(com.parse.ParseException e) {

@@ -135,6 +135,7 @@ public class ForgeNotificationCompat extends NotificationCompat {
     NotificationCompatImplBase() {
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public Notification build(NotificationCompat.Builder b) {
     	Notification result = new Notification.Builder(b.mContext)
         	.setContentTitle(b.mContentTitle)

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		713CE5741B4C11C00059E4B7 /* Parse in Frameworks */ = {isa = PBXBuildFile; fileRef = 713CE5731B4C11C00059E4B7 /* Parse */; };
+		1D98D84D1D363324002330BE /* Parse in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D98D84C1D363324002330BE /* Parse */; };
+		1D98D84F1D363331002330BE /* Bolts in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D98D84E1D363331002330BE /* Bolts */; };
 		B3127A6616AEF7370027B9B8 /* parse_API.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6116AEF7370027B9B8 /* parse_API.m */; };
 		B3127A6716AEF7370027B9B8 /* parse_EventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6316AEF7370027B9B8 /* parse_EventListener.m */; };
 		B3127A6816AEF7370027B9B8 /* parse_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6516AEF7370027B9B8 /* parse_Util.m */; };
@@ -21,32 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		713CE55A1B4C11C00059E4B7 /* Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parse.h; sourceTree = "<group>"; };
-		713CE55B1B4C11C00059E4B7 /* PF_Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PF_Twitter.h; sourceTree = "<group>"; };
-		713CE55C1B4C11C00059E4B7 /* PFACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFACL.h; sourceTree = "<group>"; };
-		713CE55D1B4C11C00059E4B7 /* PFAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAnalytics.h; sourceTree = "<group>"; };
-		713CE55E1B4C11C00059E4B7 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAnonymousUtils.h; sourceTree = "<group>"; };
-		713CE55F1B4C11C00059E4B7 /* PFCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCloud.h; sourceTree = "<group>"; };
-		713CE5601B4C11C00059E4B7 /* PFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFConfig.h; sourceTree = "<group>"; };
-		713CE5611B4C11C00059E4B7 /* PFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFConstants.h; sourceTree = "<group>"; };
-		713CE5621B4C11C00059E4B7 /* PFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFile.h; sourceTree = "<group>"; };
-		713CE5631B4C11C00059E4B7 /* PFGeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGeoPoint.h; sourceTree = "<group>"; };
-		713CE5641B4C11C00059E4B7 /* PFInstallation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInstallation.h; sourceTree = "<group>"; };
-		713CE5651B4C11C00059E4B7 /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		713CE5661B4C11C00059E4B7 /* PFNullability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFNullability.h; sourceTree = "<group>"; };
-		713CE5671B4C11C00059E4B7 /* PFObject+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+Subclass.h"; sourceTree = "<group>"; };
-		713CE5681B4C11C00059E4B7 /* PFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFObject.h; sourceTree = "<group>"; };
-		713CE5691B4C11C00059E4B7 /* PFProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFProduct.h; sourceTree = "<group>"; };
-		713CE56A1B4C11C00059E4B7 /* PFPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPurchase.h; sourceTree = "<group>"; };
-		713CE56B1B4C11C00059E4B7 /* PFPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPush.h; sourceTree = "<group>"; };
-		713CE56C1B4C11C00059E4B7 /* PFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQuery.h; sourceTree = "<group>"; };
-		713CE56D1B4C11C00059E4B7 /* PFRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRelation.h; sourceTree = "<group>"; };
-		713CE56E1B4C11C00059E4B7 /* PFRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRole.h; sourceTree = "<group>"; };
-		713CE56F1B4C11C00059E4B7 /* PFSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSession.h; sourceTree = "<group>"; };
-		713CE5701B4C11C00059E4B7 /* PFSubclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSubclassing.h; sourceTree = "<group>"; };
-		713CE5711B4C11C00059E4B7 /* PFTwitterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTwitterUtils.h; sourceTree = "<group>"; };
-		713CE5721B4C11C00059E4B7 /* PFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFUser.h; sourceTree = "<group>"; };
-		713CE5731B4C11C00059E4B7 /* Parse */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Parse; path = Parse.framework/Parse; sourceTree = "<group>"; };
+		1D98D84C1D363324002330BE /* Parse */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Parse; path = Parse.framework/Parse; sourceTree = "<group>"; };
+		1D98D84E1D363331002330BE /* Bolts */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Bolts; path = Bolts.framework/Bolts; sourceTree = "<group>"; };
 		B3127A6016AEF7370027B9B8 /* parse_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_API.h; sourceTree = "<group>"; };
 		B3127A6116AEF7370027B9B8 /* parse_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parse_API.m; sourceTree = "<group>"; };
 		B3127A6216AEF7370027B9B8 /* parse_EventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_EventListener.h; sourceTree = "<group>"; };
@@ -69,13 +46,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D98D84F1D363331002330BE /* Bolts in Frameworks */,
+				1D98D84D1D363324002330BE /* Parse in Frameworks */,
 				B3FC524815C17B2C003574D9 /* SystemConfiguration.framework in Frameworks */,
 				B3FC524215C177EA003574D9 /* AssetsLibrary.framework in Frameworks */,
 				B3FC51FF15C1523D003574D9 /* CoreGraphics.framework in Frameworks */,
 				B3FC51F815C151E5003574D9 /* UIKit.framework in Frameworks */,
 				B31B6D5215C13D5200854074 /* Foundation.framework in Frameworks */,
 				B37C3A5D162717A200B50A60 /* ForgeCore.framework in Frameworks */,
-				713CE5741B4C11C00059E4B7 /* Parse in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,48 +68,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7137AC1D19B5D655004C1F22 /* Parse.framework */ = {
-			isa = PBXGroup;
-			children = (
-				713CE5591B4C11C00059E4B7 /* Headers */,
-				713CE5731B4C11C00059E4B7 /* Parse */,
-			);
-			name = Parse.framework;
-			sourceTree = "<group>";
-		};
-		713CE5591B4C11C00059E4B7 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				713CE55A1B4C11C00059E4B7 /* Parse.h */,
-				713CE55B1B4C11C00059E4B7 /* PF_Twitter.h */,
-				713CE55C1B4C11C00059E4B7 /* PFACL.h */,
-				713CE55D1B4C11C00059E4B7 /* PFAnalytics.h */,
-				713CE55E1B4C11C00059E4B7 /* PFAnonymousUtils.h */,
-				713CE55F1B4C11C00059E4B7 /* PFCloud.h */,
-				713CE5601B4C11C00059E4B7 /* PFConfig.h */,
-				713CE5611B4C11C00059E4B7 /* PFConstants.h */,
-				713CE5621B4C11C00059E4B7 /* PFFile.h */,
-				713CE5631B4C11C00059E4B7 /* PFGeoPoint.h */,
-				713CE5641B4C11C00059E4B7 /* PFInstallation.h */,
-				713CE5651B4C11C00059E4B7 /* PFNetworkActivityIndicatorManager.h */,
-				713CE5661B4C11C00059E4B7 /* PFNullability.h */,
-				713CE5671B4C11C00059E4B7 /* PFObject+Subclass.h */,
-				713CE5681B4C11C00059E4B7 /* PFObject.h */,
-				713CE5691B4C11C00059E4B7 /* PFProduct.h */,
-				713CE56A1B4C11C00059E4B7 /* PFPurchase.h */,
-				713CE56B1B4C11C00059E4B7 /* PFPush.h */,
-				713CE56C1B4C11C00059E4B7 /* PFQuery.h */,
-				713CE56D1B4C11C00059E4B7 /* PFRelation.h */,
-				713CE56E1B4C11C00059E4B7 /* PFRole.h */,
-				713CE56F1B4C11C00059E4B7 /* PFSession.h */,
-				713CE5701B4C11C00059E4B7 /* PFSubclassing.h */,
-				713CE5711B4C11C00059E4B7 /* PFTwitterUtils.h */,
-				713CE5721B4C11C00059E4B7 /* PFUser.h */,
-			);
-			name = Headers;
-			path = Parse.framework/Headers;
-			sourceTree = "<group>";
-		};
 		B31B6D4315C13D5200854074 = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +94,8 @@
 		B31B6D5015C13D5200854074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7137AC1D19B5D655004C1F22 /* Parse.framework */,
+				1D98D84E1D363331002330BE /* Bolts */,
+				1D98D84C1D363324002330BE /* Parse */,
 				B37C3A5C162717A200B50A60 /* ForgeCore.framework */,
 				B3FC524715C17B2C003574D9 /* SystemConfiguration.framework */,
 				B3FC524115C177EA003574D9 /* AssetsLibrary.framework */,
@@ -212,7 +149,7 @@
 		B31B6D4515C13D5200854074 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Trigger Corp";
 			};
 			buildConfigurationList = B31B6D4815C13D5200854074 /* Build configuration list for PBXProject "ForgeModule" */;
@@ -280,8 +217,10 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -295,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s arm64 i386 x86_64";
@@ -319,6 +258,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -326,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s arm64 i386 x86_64";
