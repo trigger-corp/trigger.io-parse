@@ -53,6 +53,19 @@
 			}
 		}
 	},
+	{
+		"do": {
+			"android_add_to_application_manifest": {
+				"element": {
+					"tag": "meta-data",
+					"attributes": {
+						"android:name": "com.parse.push.gcm_sender_id",
+						"android:resource": "id:{{modules.parse.config.android.GCMsenderID}}"
+					}
+				}
+			}
+		}
+	},
 
 	{
 		"do": {
