@@ -27,8 +27,11 @@ delayRegistration
 
 ###Android
 
+GCM sender ID
+:   Use one or multiple (comma-seperated) own GCM sender IDs that will be used in addition to Parse's own sender ID during GCM registration. (Optional: use when migrating away from Parse or pushing from multiple providers. [More information.](https://github.com/ParsePlatform/parse-server/wiki/Compatibility-with-Hosted-Parse#android-exporting-gcm-registration-ids))
+
 Update Notifications
-:    Update notifications on Android using the Inbox Style. This option also suppresses notification display on Android while the app is visible.  [More information.](https://blog.safaribooksonline.com/2012/08/29/android-4-1-jelly-bean-notifications/)
+:   Update notifications on Android using the Inbox Style. This option also suppresses notification display on Android while the app is visible.  [More information.](https://blog.safaribooksonline.com/2012/08/29/android-4-1-jelly-bean-notifications/)
 
 Background Color
 :   Use a custom color for the background for your notification icon, e.g. #303045. (Android 5.0+ only)

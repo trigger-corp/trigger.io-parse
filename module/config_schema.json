@@ -38,15 +38,22 @@
 			"additionalProperties": false,
 			"description": "Android specific settings",
 			"properties": {
+				"GCMsenderID": {
+					"_order": 10,
+					"required": false,
+					"description": "One or multiple (comma-seperated) own GCM sender IDs to be used for GCM registration.",
+					"type": "string",
+					"title": "GCM sender ID"
+				},
 				"updateNotifications": {
-					"_order": 1,
+					"_order": 20,
 					"required": false,
 					"description": "Update notifications on Android, includes a message counter",
 					"type": "boolean",
 					"title": "Update Notifications"
 				},
 				"background-color": {
-					"_order": 2,
+					"_order": 30,
                     "type": "string",
                     "required": false,
                     "description": "Use a custom color for the background for your notification icon, e.g. #303045. Android 5.0+ only.",
@@ -54,7 +61,7 @@
 					"title": "Background Color"
                 },
 				"notification_icon": {
-					"_order": 10,
+					"_order": 40,
                     "type": "string",
                     "required": true,
                     "title": "Notification Icon",
@@ -62,31 +69,31 @@
                     "enum": [ "icon", "custom_push_icon" ]
                 },
 				"24": {
-					"_order": 11,
+					"_order": 41,
 					"required": false,
 					"type": "string",
 					"_filepicker": true
 				},
 				"36": {
-					"_order": 12,
+					"_order": 42,
 					"required": false,
 					"type": "string",
 					"_filepicker": true
 				},
 				"48": {
-					"_order": 13,
+					"_order": 43,
 					"required": false,
 					"type": "string",
 					"_filepicker": true
 				},
 				"72": {
-					"_order": 14,
+					"_order": 44,
 					"required": false,
 					"type": "string",
 					"_filepicker": true
 				},
 				"96": {
-					"_order": 15,
+					"_order": 45,
 					"required": false,
 					"type": "string",
 					"_filepicker": true
