@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D98D84D1D363324002330BE /* Parse in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D98D84C1D363324002330BE /* Parse */; };
-		1D98D84F1D363331002330BE /* Bolts in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D98D84E1D363331002330BE /* Bolts */; };
 		B3127A6616AEF7370027B9B8 /* parse_API.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6116AEF7370027B9B8 /* parse_API.m */; };
 		B3127A6716AEF7370027B9B8 /* parse_EventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6316AEF7370027B9B8 /* parse_EventListener.m */; };
 		B3127A6816AEF7370027B9B8 /* parse_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = B3127A6516AEF7370027B9B8 /* parse_Util.m */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		1D98D84C1D363324002330BE /* Parse */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Parse; path = Parse.framework/Parse; sourceTree = "<group>"; };
-		1D98D84E1D363331002330BE /* Bolts */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Bolts; path = Bolts.framework/Bolts; sourceTree = "<group>"; };
 		B3127A6016AEF7370027B9B8 /* parse_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_API.h; sourceTree = "<group>"; };
 		B3127A6116AEF7370027B9B8 /* parse_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parse_API.m; sourceTree = "<group>"; };
 		B3127A6216AEF7370027B9B8 /* parse_EventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse_EventListener.h; sourceTree = "<group>"; };
@@ -46,7 +44,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D98D84F1D363331002330BE /* Bolts in Frameworks */,
 				1D98D84D1D363324002330BE /* Parse in Frameworks */,
 				B3FC524815C17B2C003574D9 /* SystemConfiguration.framework in Frameworks */,
 				B3FC524215C177EA003574D9 /* AssetsLibrary.framework in Frameworks */,
@@ -94,7 +91,6 @@
 		B31B6D5015C13D5200854074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1D98D84E1D363331002330BE /* Bolts */,
 				1D98D84C1D363324002330BE /* Parse */,
 				B37C3A5C162717A200B50A60 /* ForgeCore.framework */,
 				B3FC524715C17B2C003574D9 /* SystemConfiguration.framework */,
