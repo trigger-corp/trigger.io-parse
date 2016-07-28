@@ -172,7 +172,6 @@
 	{ "do": { "android_add_permission": { "permission": "android.permission.VIBRATE" } } },
 	{ "do": { "android_add_permission": { "permission": "android.permission.RECEIVE_BOOT_COMPLETED" } } },
 	{ "do": { "android_add_permission": { "permission": "android.permission.WAKE_LOCK" } } },
-	{ "do": { "android_add_permission": { "permission": "android.permission.GET_ACCOUNTS" } } },
 	{ "do": { "android_add_permission": { "permission": "com.google.android.c2dm.permission.RECEIVE" } } },
 	{
 		"do":  {
@@ -193,5 +192,8 @@
 	{ "do": { "android_add_proguard_rule": "-keep class com.parse.** { *; }" } },
 	{ "do": {
 		"android_add_gradle_dependency": "com.parse:parse-android:1.13.1"
+	} },
+	{ "do": {
+		"android_add_gradle_exclude_jar": "bolts-android-1.1.2.jar"
 	} }
 ]
