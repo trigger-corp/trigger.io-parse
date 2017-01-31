@@ -1,5 +1,5 @@
 {
-	"changes": "* Added option to set a own GCM sender ID to be used during GCM registration. (Tx @staffbasehq !)\n* Removed Android `GET_ACCOUNTS` permission.\n* Resolved conflicts with Facebook module.\n",
+	"changes": "* Improved compatibility for 3rd-party hosted Parse servers.\n* Added option to omit clientKey for self-hosted Parse servers\n* Workaround for server path bug in Parse SDK v1.13.1",
 	"dependencies": {
 		"bolts": {
 			"minimum_version": "1.6.0",
@@ -7,8 +7,8 @@
 		}
 	},
 	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-	"min_platform_version": "v2.4.6",
+	"min_platform_version": "v2.5.1",
 	"namespace": "parse",
-	"platform_version": "v2.4.6",
-	"version": "2.14"
+	"platform_version": "v2.5.1",
+	"version": "2.15"
 }

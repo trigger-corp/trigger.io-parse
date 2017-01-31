@@ -7,10 +7,10 @@ if (forge.is.mobile()) {
 		asyncTest("receive push", 1, function () {
 			forge.parse.push.subscribe(channel, function () {
 				$.ajax({
-					url: 'https://api.parse.com/1/push',
+					url: 'http://docker.trigger.io:1337/parse/push',
 					headers: {
-						"X-Parse-Application-Id": "TPMPKPXNzTmfmDayiT9J4alyiWImb3SaTdMJ8vOy",
-						"X-Parse-REST-API-Key": "dgrzEF3aWQNGo84oOX0kOdaavU1Oy2ffPWBurjfq"
+						"X-Parse-Application-Id": "45732VjSzMiN8HN90ztWcSeEl05T92XUrE70MJgI",
+						"X-Parse-MASTER-Key": "MASTER_KEY"
 					},
 					contentType: "application/json",
 					type: 'POST',

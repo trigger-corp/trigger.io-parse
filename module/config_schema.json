@@ -18,7 +18,7 @@
 		},
 		"clientKey": {
 			"_order": 20,
-			"required": true,
+			"required": false,
 			"description": "Client key from Parse Server (selfhosted or parse.com)",
 			"type": "string",
 			"title": "Client Key"
@@ -54,20 +54,20 @@
 				},
 				"background-color": {
 					"_order": 30,
-                    "type": "string",
-                    "required": false,
-                    "description": "Use a custom color for the background for your notification icon, e.g. #303045. Android 5.0+ only.",
-                    "pattern": "^#[\\da-fA-F]{6}$",
+					"type": "string",
+					"required": false,
+					"description": "Use a custom color for the background for your notification icon, e.g. #303045. Android 5.0+ only.",
+					"pattern": "^#[\\da-fA-F]{6}$",
 					"title": "Background Color"
-                },
+				},
 				"notification_icon": {
 					"_order": 40,
-                    "type": "string",
-                    "required": true,
-                    "title": "Notification Icon",
-                    "description": "Choose 'icon' to use app icon or 'custom_push_icon' to use custom icon.",
-                    "enum": [ "icon", "custom_push_icon" ]
-                },
+					"type": "string",
+					"required": true,
+					"title": "Notification Icon",
+					"description": "Choose 'icon' to use app icon or 'custom_push_icon' to use custom icon.",
+					"enum": [ "icon", "custom_push_icon" ]
+				},
 				"24": {
 					"_order": 41,
 					"required": false,

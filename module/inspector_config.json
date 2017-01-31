@@ -1,8 +1,8 @@
 {
 	"this_module": {
 		"config": {
-			"applicationId": "TPMPKPXNzTmfmDayiT9J4alyiWImb3SaTdMJ8vOy",
-			"clientKey": "yjksLK4Rvzlvp4kxUxQdVat8jkssA6vVdGQIncma",
+			"server": "http://docker.trigger.io:1337/parse/",
+			"applicationId": "45732VjSzMiN8HN90ztWcSeEl05T92XUrE70MJgI",
 			"android": {
 				"24": "fixtures/parse/icons/24.png",
 				"36": "fixtures/parse/icons/36.png",
@@ -10,7 +10,8 @@
 				"72": "fixtures/parse/icons/72.png",
 				"96": "fixtures/parse/icons/96.png",
 				"notification_icon": "custom_push_icon",
-				"background-color": "#5555ff"
+				"background-color": "#5555ff",
+				"GCMsenderID": "677378418801"
 			}
 		}
 	},
