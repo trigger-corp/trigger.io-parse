@@ -37,8 +37,6 @@ public class EventListener extends ForgeEventListener {
 				? config.get("android").getAsJsonObject().get("GCMsenderID").getAsString()
 				: null;
 
-		ForgeLog.d("GCMSenderID: " + GCMSenderId);
-
 	    final Parse.Configuration configuration = new Parse.Configuration.Builder(ForgeApp.getApp())
 				.server(server)
         		.applicationId(applicationId)
