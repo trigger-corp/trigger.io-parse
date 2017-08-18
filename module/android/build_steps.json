@@ -1,199 +1,199 @@
 [
-	{
-		"do": {
-			"copy_file_from_src": {
-				"filename": "{{modules.parse.config.android.24}}",
-				"dest": "res/drawable-mdpi-v4/custom_push_icon.png"
-			}
-		}
-	},
+    {
+        "do": {
+            "copy_file_from_src": {
+                "filename": "{{modules.parse.config.android.24}}",
+                "dest": "res/drawable-mdpi-v4/custom_push_icon.png"
+            }
+        }
+    },
 
-	{
-		"do": {
-			"copy_file_from_src": {
-				"filename": "{{modules.parse.config.android.36}}",
-				"dest": "res/drawable-hdpi-v4/custom_push_icon.png"
-			}
-		}
-	},
-	{
-		"do": {
-			"copy_file_from_src": {
-				"filename": "{{modules.parse.config.android.48}}",
-				"dest": "res/drawable-xhdpi-v4/custom_push_icon.png"
-			}
-		}
-	},
-	{
-		"do": {
-			"copy_file_from_src": {
-				"filename": "{{modules.parse.config.android.72}}",
-				"dest": "res/drawable-xxhdpi-v4/custom_push_icon.png"
-			}
-		}
-	},
-	{
-		"do": {
-			"copy_file_from_src": {
-				"filename": "{{modules.parse.config.android.96}}",
-				"dest": "res/drawable-xxxhdpi-v4/custom_push_icon.png"
-			}
-		}
-	},
-	{
-		"do": {
-			"android_add_to_application_manifest": {
-				"element": {
-					"tag": "meta-data",
-					"attributes": {
-						"android:name": "com.parse.push.notification_icon",
-						"android:resource": "@drawable/{{modules.parse.config.android.notification_icon}}"
-					}
-				}
-			}
-		}
-	},
-	{
-		"do": {
-			"android_add_to_application_manifest": {
-				"element": {
-					"tag": "meta-data",
-					"attributes": {
-						"android:name": "com.parse.push.gcm_sender_id",
-						"android:value": "id:{{modules.parse.config.android.GCMsenderID}}"
-					}
-				}
-			}
-		}
-	},
+    {
+        "do": {
+            "copy_file_from_src": {
+                "filename": "{{modules.parse.config.android.36}}",
+                "dest": "res/drawable-hdpi-v4/custom_push_icon.png"
+            }
+        }
+    },
+    {
+        "do": {
+            "copy_file_from_src": {
+                "filename": "{{modules.parse.config.android.48}}",
+                "dest": "res/drawable-xhdpi-v4/custom_push_icon.png"
+            }
+        }
+    },
+    {
+        "do": {
+            "copy_file_from_src": {
+                "filename": "{{modules.parse.config.android.72}}",
+                "dest": "res/drawable-xxhdpi-v4/custom_push_icon.png"
+            }
+        }
+    },
+    {
+        "do": {
+            "copy_file_from_src": {
+                "filename": "{{modules.parse.config.android.96}}",
+                "dest": "res/drawable-xxxhdpi-v4/custom_push_icon.png"
+            }
+        }
+    },
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "meta-data",
+                    "attributes": {
+                        "android:name": "com.parse.push.notification_icon",
+                        "android:resource": "@drawable/{{modules.parse.config.android.notification_icon}}"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "meta-data",
+                    "attributes": {
+                        "android:name": "com.parse.push.gcm_sender_id",
+                        "android:value": "id:{{modules.parse.config.android.GCMsenderID}}"
+                    }
+                }
+            }
+        }
+    },
 
-	{
-		"do": {
-			"android_add_to_application_manifest": {
-				"element": {
-					"tag": "service",
-					"attributes": {
-						"android:name": "com.parse.PushService"
-					}
-				}
-			}
-		}
-	},
-	{
-		"do": {
-			"android_add_to_application_manifest": {
-				"element": {
-					"tag": "receiver",
-					"attributes": {
-						"android:name": "com.parse.ParseBroadcastReceiver"
-					},
-					"children": [{
-						"tag": "intent-filter",
-						"children": [{
-							"tag": "action",
-							"attributes": {
-								"android:name": "android.intent.action.BOOT_COMPLETED"
-							}
-						}, {
-							"tag": "action",
-							"attributes": {
-								"android:name": "android.intent.action.USER_PRESENT"
-							}
-						}]
-					}]
-				}
-			}
-		}
-	},
-	{
-		"do": {
-			"android_add_to_application_manifest": {
-				"element": {
-					"tag": "receiver",
-					"attributes": {
-						"android:name": "com.parse.ForgePushBroadcastReceiver",
-						"android:exported": "false"
-					},
-					"children": [{
-						"tag": "intent-filter",
-						"children": [{
-							"tag": "action",
-							"attributes": {
-								"android:name": "com.parse.push.intent.RECEIVE"
-							}
-						}, {
-							"tag": "action",
-							"attributes": {
-								"android:name": "com.parse.push.intent.DELETE"
-							}
-						}, {
-							"tag": "action",
-							"attributes": {
-								"android:name": "com.parse.push.intent.OPEN"
-							}
-						}]
-					}]
-				}
-			}
-		}
-	},
-	{
-		"do": {
-			"android_add_to_application_manifest": {
-				"element": {
-					"tag": "receiver",
-					"attributes": {
-						"android:name": "com.parse.GcmBroadcastReceiver",
-						"android:permission": "com.google.android.c2dm.permission.SEND"
-					},
-					"children": [{
-						"tag": "intent-filter",
-						"children": [{
-							"tag": "action",
-							"attributes": {
-								"android:name": "com.google.android.c2dm.intent.RECEIVE"
-							}
-						}, {
-							"tag": "action",
-							"attributes": {
-								"android:name": "com.google.android.c2dm.intent.REGISTRATION"
-							}
-						}, {
-							"tag": "category",
-							"attributes": {
-								"android:name": "{{core.android.package_name}}"
-							}
-						}]
-					}]
-				}
-			}
-		}
-	},
-	{ "do": { "android_add_permission": { "permission": "android.permission.VIBRATE" } } },
-	{ "do": { "android_add_permission": { "permission": "android.permission.RECEIVE_BOOT_COMPLETED" } } },
-	{ "do": { "android_add_permission": { "permission": "android.permission.WAKE_LOCK" } } },
-	{ "do": { "android_add_permission": { "permission": "com.google.android.c2dm.permission.RECEIVE" } } },
-	{
-		"do":  {
-			"android_add_to_manifest": {
-				"element": {
-					"tag": "permission",
-					"attributes": {
-						"android:name": "{{core.android.package_name}}.permission.C2D_MESSAGE",
-						"android:protectionLevel": "signature"
-					}
-				}
-			}
-		}
-	},
-	{ "do": { "android_add_permission": { "permission": "{{core.android.package_name}}.permission.C2D_MESSAGE" } } },
-	{ "do": { "android_add_proguard_rule": "-keepattributes Signature" } },
-	{ "do": { "android_add_proguard_rule": "-dontwarn com.parse.**" } },
-	{ "do": { "android_add_proguard_rule": "-keep class com.parse.** { *; }" } },
-	{ "do": {
-		"android_add_gradle_dependency": "com.parse:parse-android:1.13.1"
-	} },
-	{ "do": {
-		"android_add_gradle_exclude_jar": "bolts-android-1.1.2.jar"
-	} }
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "service",
+                    "attributes": {
+                        "android:name": "com.parse.PushService"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "receiver",
+                    "attributes": {
+                        "android:name": "com.parse.ParseBroadcastReceiver"
+                    },
+                    "children": [{
+                        "tag": "intent-filter",
+                        "children": [{
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "android.intent.action.BOOT_COMPLETED"
+                            }
+                        }, {
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "android.intent.action.USER_PRESENT"
+                            }
+                        }]
+                    }]
+                }
+            }
+        }
+    },
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "receiver",
+                    "attributes": {
+                        "android:name": "com.parse.ForgePushBroadcastReceiver",
+                        "android:exported": "false"
+                    },
+                    "children": [{
+                        "tag": "intent-filter",
+                        "children": [{
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.parse.push.intent.RECEIVE"
+                            }
+                        }, {
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.parse.push.intent.DELETE"
+                            }
+                        }, {
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.parse.push.intent.OPEN"
+                            }
+                        }]
+                    }]
+                }
+            }
+        }
+    },
+    {
+        "do": {
+            "android_add_to_application_manifest": {
+                "element": {
+                    "tag": "receiver",
+                    "attributes": {
+                        "android:name": "com.parse.GcmBroadcastReceiver",
+                        "android:permission": "com.google.android.c2dm.permission.SEND"
+                    },
+                    "children": [{
+                        "tag": "intent-filter",
+                        "children": [{
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.google.android.c2dm.intent.RECEIVE"
+                            }
+                        }, {
+                            "tag": "action",
+                            "attributes": {
+                                "android:name": "com.google.android.c2dm.intent.REGISTRATION"
+                            }
+                        }, {
+                            "tag": "category",
+                            "attributes": {
+                                "android:name": "{{core.android.package_name}}"
+                            }
+                        }]
+                    }]
+                }
+            }
+        }
+    },
+    { "do": { "android_add_permission": { "permission": "android.permission.VIBRATE" } } },
+    { "do": { "android_add_permission": { "permission": "android.permission.RECEIVE_BOOT_COMPLETED" } } },
+    { "do": { "android_add_permission": { "permission": "android.permission.WAKE_LOCK" } } },
+    { "do": { "android_add_permission": { "permission": "com.google.android.c2dm.permission.RECEIVE" } } },
+    {
+        "do":  {
+            "android_add_to_manifest": {
+                "element": {
+                    "tag": "permission",
+                    "attributes": {
+                        "android:name": "{{core.android.package_name}}.permission.C2D_MESSAGE",
+                        "android:protectionLevel": "signature"
+                    }
+                }
+            }
+        }
+    },
+    { "do": { "android_add_permission": { "permission": "{{core.android.package_name}}.permission.C2D_MESSAGE" } } },
+    { "do": { "android_add_proguard_rule": "-keepattributes Signature" } },
+    { "do": { "android_add_proguard_rule": "-dontwarn com.parse.**" } },
+    { "do": { "android_add_proguard_rule": "-keep class com.parse.** { *; }" } },
+    { "do": {
+        "android_add_gradle_dependency": "com.parse:parse-android:1.15.8"
+    } },
+    { "do": {
+        "android_add_gradle_exclude_jar": "bolts-android-1.1.2.jar"
+    } }
 ]
