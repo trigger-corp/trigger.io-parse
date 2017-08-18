@@ -1,14 +1,14 @@
 {
-	"changes": "* Improved compatibility for 3rd-party hosted Parse servers.\n* Added option to omit clientKey for self-hosted Parse servers\n* Workaround for server path bug in Parse SDK v1.13.1",
-	"dependencies": {
-		"bolts": {
-			"minimum_version": "1.6.0",
-			"maximum_version": "1.6.0"
-		}
-	},
-	"description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-	"min_platform_version": "v2.5.1",
-	"namespace": "parse",
-	"platform_version": "v2.5.1",
-	"version": "2.15"
+    "changes": "* Updated Parse Android SDK to 1.15.8\n* Updated Parse iOS SDK to 1.15.1",
+    "dependencies": {
+        "bolts": {
+            "minimum_version": "1.6.0",
+            "maximum_version": "1.6.0"
+        }
+    },
+    "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
+    "min_platform_version": "v2.5.5",
+    "namespace": "parse",
+    "platform_version": "feature_ios11",
+    "version": "2.16"
 }

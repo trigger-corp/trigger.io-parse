@@ -1,28 +1,29 @@
 {
-	"this_module": {
-		"config": {
-			"server": "http://docker.trigger.io:1337/parse/",
-			"applicationId": "45732VjSzMiN8HN90ztWcSeEl05T92XUrE70MJgI",
-			"android": {
-				"24": "fixtures/parse/icons/24.png",
-				"36": "fixtures/parse/icons/36.png",
-				"48": "fixtures/parse/icons/48.png",
-				"72": "fixtures/parse/icons/72.png",
-				"96": "fixtures/parse/icons/96.png",
-				"notification_icon": "custom_push_icon",
-				"background-color": "#5555ff",
-				"GCMsenderID": "677378418801"
-			}
-		}
-	},
-	"modules": {
-		"bolts": {
-			"version": "1.6.0"
-		}
-	},
-	"core": {
-		"android": {
-			"package_name": "io.trigger.forge.android.inspector"
-		}
-	}
+    "this_module": {
+        "config": {
+            "delayRegistration": true,
+            "server": "http://docker.trigger.io:1337/parse/",
+            "applicationId": "45732VjSzMiN8HN90ztWcSeEl05T92XUrE70MJgI",
+            "android": {
+                "24": "fixtures/parse/icons/24.png",
+                "36": "fixtures/parse/icons/36.png",
+                "48": "fixtures/parse/icons/48.png",
+                "72": "fixtures/parse/icons/72.png",
+                "96": "fixtures/parse/icons/96.png",
+                "notification_icon": "custom_push_icon",
+                "background-color": "#5555ff",
+                "GCMsenderID": "677378418801"
+            }
+        }
+    },
+    "modules": {
+        "bolts": {
+            "version": "1.6.0"
+        }
+    },
+    "core": {
+        "android": {
+            "package_name": "io.trigger.forge.android.inspector"
+        }
+    }
 }
