@@ -1,5 +1,5 @@
 {
-    "changes": "* Updated Parse Android SDK to 1.15.8\n* Updated Parse iOS SDK to 1.15.1",
+    "changes": "* Updated Parse Android SDK to 1.16.2",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.6.0",
@@ -10,5 +10,5 @@
     "min_platform_version": "v2.6.1",
     "namespace": "parse",
     "platform_version": "v2.6.1",
-    "version": "2.16"
+    "version": "2.17"
 }
