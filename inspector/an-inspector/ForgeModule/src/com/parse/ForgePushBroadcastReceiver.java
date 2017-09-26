@@ -1,20 +1,16 @@
 package com.parse;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
 import com.google.gson.JsonObject;
-
-import io.trigger.forge.android.core.ForgeActivity;
-import io.trigger.forge.android.core.ForgeLog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import io.trigger.forge.android.core.ForgeApp;
-import io.trigger.forge.android.modules.parse.Constant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,8 +19,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import io.trigger.forge.android.core.ForgeActivity;
+import io.trigger.forge.android.core.ForgeApp;
+import io.trigger.forge.android.core.ForgeLog;
+import io.trigger.forge.android.modules.parse.Constant;
+
 public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private static final String UPDATE_NOTIFICATIONS_FEATURE = "updateNotifications";
+
+    private static final String notificationChannelId = "default";
+    private static final String notificationChannelDescription = "Default";
 
     static ArrayList<HashMap<String, String>> history = new ArrayList<HashMap<String, String>>();
 
@@ -32,28 +36,29 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
 
         return config.has("android") &&
-        	   config.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
-       		   config.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
+               config.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
+               config.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
     }
 
     private Notification setBackgroundColor(Notification notification) {
-    	JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
-    	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
-    		config.has("android") &&
-    		config.getAsJsonObject("android").has("background-color")) {
-    		try {
-    			notification.color = Color.parseColor(config.getAsJsonObject("android").get("background-color").getAsString());
-    		} catch (IllegalArgumentException e) {
+        JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+            config.has("android") &&
+            config.getAsJsonObject("android").has("background-color")) {
+            try {
+                notification.color = Color.parseColor(config.getAsJsonObject("android").get("background-color").getAsString());
+            } catch (IllegalArgumentException e) {
                 ForgeLog.e("Invalid color string for parse.android.background-color: " + e.getMessage());
             }
-    	}
-		return notification;
+        }
+        return notification;
     }
 
     @Override
     public void onPushOpen(Context context, Intent intent) {
         ParseAnalytics.trackAppOpenedInBackground(intent);
 
+        // can't we just call super?
         Intent activity = new Intent(context, ForgeActivity.class);
         activity.putExtras(intent.getExtras());
         activity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -87,7 +92,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
 
     protected void buildAndShowUpdatableNotification(Context context, Intent intent) {
         JSONObject pushData = this.getPushData(intent);
-        if(pushData != null && (pushData.has("alert") || pushData.has("title"))) {
+        if (pushData != null && (pushData.has("alert") || pushData.has("title"))) {
             HashMap<String, String> message = new HashMap<String, String>();
             message.put("alert", pushData.optString("alert", "Notification received."));
             message.put("title", pushData.optString("title", ManifestInfo.getDisplayName(context)));
@@ -104,10 +109,12 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
             Intent deleteIntent = new Intent("com.parse.push.intent.DELETE");
             deleteIntent.putExtras(extras);
             deleteIntent.setPackage(packageName);
-            PendingIntent pContentIntent = PendingIntent.getBroadcast(context, contentIntentRequestCode, contentIntent, 134217728);
-            PendingIntent pDeleteIntent = PendingIntent.getBroadcast(context, deleteIntentRequestCode, deleteIntent, 134217728);
+            PendingIntent pContentIntent = PendingIntent.getBroadcast(context, contentIntentRequestCode, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pDeleteIntent = PendingIntent.getBroadcast(context, deleteIntentRequestCode, deleteIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            ForgeNotificationCompat.Builder builder = new ForgeNotificationCompat.Builder(context);
+            //ForgeNotificationCompat.Builder builder =  new ForgeNotificationCompat.Builder(context);
+            com.parse.NotificationCompat.Builder builder = new com.parse.NotificationCompat.Builder(context);
+
             builder.setContentTitle(message.get("title"))
                    .setContentText(message.get("alert"))
                    .setSmallIcon(this.getSmallIconId(context, intent))
@@ -115,6 +122,7 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
                    .setContentIntent(pContentIntent)
                    .setDeleteIntent(pDeleteIntent)
                    .setAutoCancel(true)
+                   .setNotificationChannel(notificationChannelId)
                    .setDefaults(-1);
 
             if (history.size() > 1) {
@@ -128,25 +136,25 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
                 }
                 builder.setStyle(inboxStyle);
             } else {
-            	builder.setStyle(new NotificationCompat.Builder.BigTextStyle().bigText(message.get("alert")));
+                builder.setStyle(new NotificationCompat.Builder.BigTextStyle().bigText(message.get("alert")));
             }
 
-            showUpdatableNotification(context, setBackgroundColor(builder.build()));
-        }
-    }
+            // create notification manager
+            NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel(notificationChannelId,
+                        notificationChannelDescription,
+                        NotificationManager.IMPORTANCE_DEFAULT);
+                notificationManager.createNotificationChannel(channel);
+            }
 
-    public void showUpdatableNotification(Context context, Notification notification) {
-        if(context != null && notification != null) {
-            if(context != null && notification != null) {
-                NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-                int notificationId = 1;
-
-                try {
-                    nm.notify(notificationId, notification);
-                } catch (SecurityException var6) {
-                    notification.defaults = 5;
-                    nm.notify(notificationId, notification);
-                }
+            // send notification
+            Notification notification = setBackgroundColor(builder.build());
+            try {
+                notificationManager.notify(1, notification);
+            } catch (SecurityException var6) {
+                notification.defaults = 5;
+                notificationManager.notify(1, notification);
             }
         }
     }

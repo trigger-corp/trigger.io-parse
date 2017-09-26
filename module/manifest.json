@@ -1,5 +1,5 @@
 {
-    "changes": "* Updated Parse Android SDK to 1.16.2",
+    "changes": "* Updated Parse Android SDK to 1.16.2\n* Fixed: Notifications do not show on Android 8.0 when 'updateNotifications' is enabled",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.6.0",
