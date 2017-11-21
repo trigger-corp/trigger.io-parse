@@ -85,7 +85,7 @@
                 "element": {
                     "tag": "receiver",
                     "attributes": {
-                        "android:name": "com.parse.ParseBroadcastReceiver"
+                        "android:name": "com.parse.ParsePushBroadcastReceiver"
                     },
                     "children": [{
                         "tag": "intent-filter",
