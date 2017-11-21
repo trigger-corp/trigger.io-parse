@@ -191,7 +191,7 @@
     { "do": { "android_add_proguard_rule": "-dontwarn com.parse.**" } },
     { "do": { "android_add_proguard_rule": "-keep class com.parse.** { *; }" } },
     { "do": {
-        "android_add_gradle_dependency": "com.parse:parse-android:1.16.2"
+        "android_add_gradle_dependency": "com.parse:parse-android:1.16.3"
     } },
     { "do": {
         "android_add_gradle_exclude_jar": "bolts-android-1.1.2.jar"
