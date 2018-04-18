@@ -1,5 +1,5 @@
 {
-    "changes": "* Updated Parse Android SDK to 1.16.3\n",
+    "changes": "* Added explicit setting to show notifications on Android while app is visible in foreground.",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.6.0",
@@ -7,8 +7,8 @@
         }
     },
     "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-    "min_platform_version": "v2.6.1",
+    "min_platform_version": "v2.6.6",
     "namespace": "parse",
-    "platform_version": "v2.6.1",
-    "version": "2.17.1"
+    "platform_version": "v2.6.6",
+    "version": "2.18"
 }

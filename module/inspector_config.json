@@ -13,7 +13,8 @@
                 "notification_icon": "custom_push_icon",
                 "background-color": "#5555ff",
                 "GCMsenderID": "677378418801",
-                "updateNotifications": true
+                "updateNotifications": true,
+                "showNotificationsWhileVisible": false
             }
         }
     },

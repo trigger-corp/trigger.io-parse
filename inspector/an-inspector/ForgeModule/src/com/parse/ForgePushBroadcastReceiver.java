@@ -26,6 +26,7 @@ import io.trigger.forge.android.modules.parse.Constant;
 
 public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     private static final String UPDATE_NOTIFICATIONS_FEATURE = "updateNotifications";
+    private static final String SHOW_NOTIFICATIONS_WHILE_VISIBLE = "showNotificationsWhileVisible";
 
     private static final String notificationChannelId = "default";
     private static final String notificationChannelDescription = "Default";
@@ -38,6 +39,14 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
         return config.has("android") &&
                config.getAsJsonObject("android").has(UPDATE_NOTIFICATIONS_FEATURE) &&
                config.getAsJsonObject("android").get(UPDATE_NOTIFICATIONS_FEATURE).getAsBoolean();
+    }
+
+    private boolean showNotificationsWhileVisible() {
+        JsonObject config = ForgeApp.configForModule(Constant.MODULE_NAME);
+
+        return config.has("android") &&
+                config.getAsJsonObject("android").has(SHOW_NOTIFICATIONS_WHILE_VISIBLE) &&
+                config.getAsJsonObject("android").get(SHOW_NOTIFICATIONS_WHILE_VISIBLE).getAsBoolean();
     }
 
     private Notification setBackgroundColor(Notification notification) {
@@ -80,14 +89,16 @@ public class ForgePushBroadcastReceiver extends ParsePushBroadcastReceiver {
 
     @Override
     protected Notification getNotification(Context context, Intent intent) {
-        if (!isUpdateNotificationsFeature()) {
-            return setBackgroundColor(super.getNotification(context, intent));
-        } else if (VisibilityManager.isVisible()) {
+        if (VisibilityManager.isVisible() && !showNotificationsWhileVisible()) {
             return null;
-        } else {
+        }
+
+        if (isUpdateNotificationsFeature()) {
             buildAndShowUpdatableNotification(context, intent);
             return null;
         }
+
+        return setBackgroundColor(super.getNotification(context, intent));
     }
 
     protected void buildAndShowUpdatableNotification(Context context, Intent intent) {
