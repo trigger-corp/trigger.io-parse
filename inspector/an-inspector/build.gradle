@@ -7,9 +7,9 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "com.android.tools.build:gradle:3.1.0"
     }
-    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+    System.properties["com.android.build.gradle.overrideVersionCheck"] = "true"
 }
 
 allprojects {
@@ -17,10 +17,10 @@ allprojects {
         jcenter()
         //mavenCentral()
         maven {
-            url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+            url "https://download.01.org/crosswalk/releases/crosswalk/android/maven2"
         }
         //maven {
-        //    url 'http://xwalk.beevelop.com/crosswalk/releases/crosswalk/android/maven2' // temp workaround for official crosswalk server being down
+        //    url "http://xwalk.beevelop.com/crosswalk/releases/crosswalk/android/maven2" // temp workaround for official crosswalk server being down
         //}
         maven {
             url "https://maven.google.com"
@@ -32,15 +32,15 @@ allprojects {
             url "https://jitpack.io"
         }
         flatDir {
-            dirs 'ForgeModule/libs'
+            dirs "ForgeModule/libs"
         }
     }
 }
 
 ext {
     compileSdkVersion = 26
-    buildToolsVersion = "26.0.1"
-    supportLibraryVersion = "26.0.1"
+    buildToolsVersion = "27.0.3"
+    supportLibraryVersion = "27.1.1"
     crosswalkVersion = "23.53.589.4"
 
     minSdkVersion = moduleMinSdkVersion() ?: 14
@@ -109,5 +109,20 @@ def moduleMinSdkVersion() {
         config["minSdkVersion"] ?: null
     } else {
         null
+    }
+}
+
+// Force Android support library version for Crosswalk builds
+configurations.all { conf ->
+    if (conf.name.contains("crosswalk")) {
+        println "Munging support library for: " + conf.name
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == "com.android.support") {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion rootProject.ext.supportLibraryVersion
+                }
+            }
+        }
     }
 }

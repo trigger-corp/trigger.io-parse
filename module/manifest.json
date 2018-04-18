@@ -7,8 +7,8 @@
         }
     },
     "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-    "min_platform_version": "v2.6.6",
+    "min_platform_version": "v2.6.7",
     "namespace": "parse",
-    "platform_version": "v2.6.6",
+    "platform_version": "v2.6.7",
     "version": "2.18"
 }
