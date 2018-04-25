@@ -1,5 +1,5 @@
 {
-    "changes": "* Added explicit setting to show notifications on Android while app is visible in foreground.",
+    "changes": "* New configuration option: `showNotificationsWhileVisible` to show notifications on Android while app is visible in foreground.",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.6.0",
