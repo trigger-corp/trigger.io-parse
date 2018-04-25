@@ -52,6 +52,13 @@
 					"type": "boolean",
 					"title": "Update Notifications"
 				},
+				"showNotificationsWhileVisible": {
+					"_order": 21,
+					"required": false,
+					"description": "Show incoming notifications on Android, even if the app is currently visible in foreground.",
+					"type": "boolean",
+					"title": "Show Notifications While Visible"
+				},
 				"background-color": {
 					"_order": 30,
 					"type": "string",
