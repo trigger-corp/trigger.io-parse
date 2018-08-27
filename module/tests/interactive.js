@@ -56,7 +56,7 @@ function send_push(channel, message) {
 }
 
 
-/*asyncTest("receive push", 1, function () {
+asyncTest("receive push", 1, function () {
     forge.parse.push.subscribe(channel, function () {
         send_push(channel, "†és† push");
     });
@@ -71,7 +71,7 @@ function send_push(channel, message) {
             start();
         }
     });
-});*/
+});
 
 
 asyncTest("receive push in background", 1, function () {
