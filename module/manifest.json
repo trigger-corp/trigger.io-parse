@@ -1,5 +1,5 @@
 {
-    "changes": "* Updated Parse iOS SDK to 1.16.0\n* Removed unused Parse API's dependent on iOS CoreLocation.framework to resolve app store submission issues.",
+    "changes": "* Fixed: On iOS, calls to `setBadgeNumber(0)` does not reset the app badge and notifications list.",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.6.0",
@@ -7,8 +7,8 @@
         }
     },
     "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-    "min_platform_version": "v2.6.9",
+    "min_platform_version": "v2.7.2",
     "namespace": "parse",
-    "platform_version": "v2.6.9",
-    "version": "2.19"
+    "platform_version": "v2.7.2",
+    "version": "2.20"
 }

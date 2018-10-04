@@ -27,9 +27,23 @@
 
 + (void)setBadgeNumber:(ForgeTask *)task number:(NSNumber*)number {
 	PFInstallation *installation = [PFInstallation currentInstallation];
-	installation.badge = [number integerValue];
-	[installation saveEventually];
-	[task success:nil];
+    installation.badge = [number integerValue];
+
+    // Parse broke setBadgeNumber in 1.15.3 - it still updates server side but the app badge is never updated
+    // https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/1.15.2...1.15.3
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [number integerValue];
+
+    [installation saveEventually:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded == YES) {
+            NSLog(@"parse.setBadgeNumber completed remote update");
+        } else if (error == nil) {
+            NSLog(@"parse.setBadgeNumber failed during remote update: unknown error");
+        } else {
+            NSLog(@"parse.setBadgeNumber failed during remote update: %@", [error localizedDescription]);
+        }
+    }];
+
+    [task success:nil];
 }
 
 + (void)push_subscribe:(ForgeTask*)task channel:(NSString*)channel {
