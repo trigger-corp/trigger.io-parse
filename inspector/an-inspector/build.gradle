@@ -1,27 +1,24 @@
 buildscript {
     repositories {
+        google()
         jcenter()
-        //mavenCentral()
         maven {
             url "https://maven.google.com"
         }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:3.1.0"
+        classpath "com.android.tools.build:gradle:3.1.4"
     }
     System.properties["com.android.build.gradle.overrideVersionCheck"] = "true"
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
-        //mavenCentral()
         maven {
             url "https://download.01.org/crosswalk/releases/crosswalk/android/maven2"
         }
-        //maven {
-        //    url "http://xwalk.beevelop.com/crosswalk/releases/crosswalk/android/maven2" // temp workaround for official crosswalk server being down
-        //}
         maven {
             url "https://maven.google.com"
         }
@@ -38,13 +35,13 @@ allprojects {
 }
 
 ext {
-    compileSdkVersion = 26
-    buildToolsVersion = "27.0.3"
-    supportLibraryVersion = "27.1.1"
+    compileSdkVersion = 28
+    buildToolsVersion = "28.0.2"
+    supportLibraryVersion = "28.0.0-rc02"
     crosswalkVersion = "23.53.589.4"
 
     minSdkVersion = moduleMinSdkVersion() ?: 14
-    targetSdkVersion = 26
+    targetSdkVersion = 28
 
     compileOptions = {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -63,7 +60,11 @@ ext {
     }
 }
 
-task getHomeDir << {
+wrapper {
+    gradleVersion = "4.9"
+}
+
+task getHomeDir doLast {
     println gradle.gradleHomeDir
 }
 
@@ -109,6 +110,17 @@ def moduleMinSdkVersion() {
         config["minSdkVersion"] ?: null
     } else {
         null
+    }
+}
+
+def moduleResConfigs() {
+    def f = new File("ForgeInspector/gradle.json")
+    if (f.exists()) {
+        def jsonSlurper = new JsonSlurper()
+        def config = jsonSlurper.parseText(f.text)
+        config["resConfigs"] ?: []
+    } else {
+        []
     }
 }
 
