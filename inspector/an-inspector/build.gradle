@@ -37,7 +37,7 @@ allprojects {
 ext {
     compileSdkVersion = 28
     buildToolsVersion = "28.0.2"
-    supportLibraryVersion = "28.0.0-rc02"
+    supportLibraryVersion = "28.0.0"
     crosswalkVersion = "23.53.589.4"
 
     minSdkVersion = moduleMinSdkVersion() ?: 14

@@ -14,7 +14,7 @@
                 "background-color": "#5555ff",
                 "GCMsenderID": "677378418801",
                 "updateNotifications": true,
-                "showNotificationsWhileVisible": false
+                "showNotificationsWhileVisible": true
             }
         }
     },

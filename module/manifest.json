@@ -1,5 +1,5 @@
 {
-    "changes": "* Fixed: On iOS, calls to `setBadgeNumber(0)` does not reset the app badge and notifications list.",
+    "changes": "* Fixed: Android P does not support the `com.google.android.c2dm.intent.REGISTRATION` intent for `GcmBroadcastReceiver`.",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.6.0",
@@ -10,5 +10,5 @@
     "min_platform_version": "v2.7.2",
     "namespace": "parse",
     "platform_version": "v2.7.2",
-    "version": "2.20"
+    "version": "2.21"
 }
