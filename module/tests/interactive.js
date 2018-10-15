@@ -10,23 +10,26 @@ var parse_headers = {
     "X-Parse-MASTER-Key": "MASTER_KEY"
 };
 
-asyncTest("Reset badge number and clear notifications", 1, function () {
-    forge.partners.parse.getBadgeNumber(function (badge) {
-        forge.logging.log("Badge number was: " + badge);
-        forge.parse.setBadgeNumber(0, function () {
-            askQuestion("Did the badge number reset to 0?", {
-                Yes: function () {
-                    ok(true);
-                    start();
-                },
-                No: function () {
-                    ok(false);
-                    start();
-                }
+if (forge.is.ios()) {
+    asyncTest("Reset badge number and clear notifications", 1, function () {
+        forge.partners.parse.getBadgeNumber(function (badge) {
+            forge.logging.log("Badge number was: " + badge);
+            forge.parse.setBadgeNumber(0, function () {
+                askQuestion("Did the badge number reset to 0?", {
+                    Yes: function () {
+                        ok(true);
+                        start();
+                    },
+                    No: function () {
+                        ok(false);
+                        start();
+                    }
+                });
             });
         });
     });
-});
+}
+
 
 asyncTest("Delay registration", 1, function () {
     forge.parse.registerForNotifications(function () {
