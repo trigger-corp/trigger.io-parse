@@ -22,6 +22,9 @@ inspector/an-inspector/local.properties
 inspector/an-inspector/out
 inspector/an-inspector/ForgeModule/gen
 inspector/an-inspector/.gradle/
+inspector/an-inspector/gradle/
+inspector/an-inspector/gradlew
+inspector/an-inspector/gradlew.bat
 inspector/an-inspector/ForgeInspector
 inspector/an-inspector/ForgeModule/.settings
 inspector/an-inspector/ForgeModule/libs

@@ -1,111 +1,112 @@
 {
-	"type": "object",
-	"additionalProperties": false,
-	"properties": {
-		"server": {
-		  "_order": 9,
-		  "required": false,
-		  "description": "Endpoint of the Parse Server to use. If not set 'https://api.parse.com/1/' will be used.",
-		  "type": "string",
-		  "title": "Server"
-		},
-		"applicationId": {
-			"_order": 10,
-			"required": true,
-			"description": "Application ID from Parse Server (selfhosted or parse.com)",
-			"type": "string",
-			"title": "Application Id"
-		},
-		"clientKey": {
-			"_order": 20,
-			"required": false,
-			"description": "Client key from Parse Server (selfhosted or parse.com)",
-			"type": "string",
-			"title": "Client Key"
-		},
-		"delayRegistration": {
-			"_order": 30,
-			"required": false,
-			"description": "Don't register for remote notifications at app startup",
-			"type": "boolean",
-			"title": "Delay Registration"
-		},
-		"android": {
-			"title": "Android",
-			"_order": 50,
-			"required": true,
-			"type": "object",
-			"additionalProperties": false,
-			"description": "Android specific settings",
-			"properties": {
-				"GCMsenderID": {
-					"_order": 10,
-					"required": false,
-					"description": "One or multiple (comma-seperated) own GCM sender IDs to be used for GCM registration.",
-					"type": "string",
-					"title": "GCM sender ID"
-				},
-				"updateNotifications": {
-					"_order": 20,
-					"required": false,
-					"description": "Update notifications on Android, includes a message counter",
-					"type": "boolean",
-					"title": "Update Notifications"
-				},
-				"showNotificationsWhileVisible": {
-					"_order": 21,
-					"required": false,
-					"description": "Show incoming notifications on Android, even if the app is currently visible in foreground.",
-					"type": "boolean",
-					"title": "Show Notifications While Visible"
-				},
-				"background-color": {
-					"_order": 30,
-					"type": "string",
-					"required": false,
-					"description": "Use a custom color for the background for your notification icon, e.g. #303045. Android 5.0+ only.",
-					"pattern": "^#[\\da-fA-F]{6}$",
-					"title": "Background Color"
-				},
-				"notification_icon": {
-					"_order": 40,
-					"type": "string",
-					"required": true,
-					"title": "Notification Icon",
-					"description": "Choose 'icon' to use app icon or 'custom_push_icon' to use custom icon.",
-					"enum": [ "icon", "custom_push_icon" ]
-				},
-				"24": {
-					"_order": 41,
-					"required": false,
-					"type": "string",
-					"_filepicker": true
-				},
-				"36": {
-					"_order": 42,
-					"required": false,
-					"type": "string",
-					"_filepicker": true
-				},
-				"48": {
-					"_order": 43,
-					"required": false,
-					"type": "string",
-					"_filepicker": true
-				},
-				"72": {
-					"_order": 44,
-					"required": false,
-					"type": "string",
-					"_filepicker": true
-				},
-				"96": {
-					"_order": 45,
-					"required": false,
-					"type": "string",
-					"_filepicker": true
-				}
-			}
-		}
-	}
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "server": {
+          "_order": 9,
+          "required": false,
+          "description": "Endpoint of the Parse Server to use. If not set 'https://api.parse.com/1/' will be used.",
+          "type": "string",
+          "title": "Server"
+        },
+        "applicationId": {
+            "_order": 10,
+            "required": true,
+            "description": "Application ID from Parse Server (selfhosted or parse.com)",
+            "type": "string",
+            "title": "Application Id"
+        },
+        "clientKey": {
+            "_order": 20,
+            "required": false,
+            "description": "Client key from Parse Server (selfhosted or parse.com)",
+            "type": "string",
+            "title": "Client Key"
+        },
+        "delayRegistration": {
+            "_order": 30,
+            "required": false,
+            "description": "Don't register for remote notifications at app startup",
+            "type": "boolean",
+            "title": "Delay Registration"
+        },
+        "android": {
+            "title": "Android",
+            "_order": 50,
+            "required": true,
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Android specific settings",
+            "properties": {
+                "googleServicesJson": {
+                    "_order": 10,
+                    "required": true,
+                    "description": "Google Services Configuration File (usually 'google-services.json')",
+                    "type": "string",
+                    "_filepicker": true,
+                    "title": "Google Services Config"
+                },
+                "updateNotifications": {
+                    "_order": 20,
+                    "required": false,
+                    "description": "Update notifications on Android, includes a message counter",
+                    "type": "boolean",
+                    "title": "Update Notifications"
+                },
+                "showNotificationsWhileVisible": {
+                    "_order": 21,
+                    "required": false,
+                    "description": "Show incoming notifications on Android, even if the app is currently visible in foreground.",
+                    "type": "boolean",
+                    "title": "Show Notifications While Visible"
+                },
+                "backgroundColour": {
+                    "_order": 30,
+                    "type": "string",
+                    "required": false,
+                    "description": "Use a custom color for the background for your notification icon, e.g. #303045. Android 5.0+ only.",
+                    "pattern": "^#[\\da-fA-F]{6}$",
+                    "title": "Background Color"
+                },
+                "notificationIcon": {
+                    "_order": 40,
+                    "type": "string",
+                    "required": true,
+                    "title": "Notification Icon",
+                    "description": "Choose '@mipmap/ic_launcher' to use app icon or '@drawable/custom_push_icon' to use custom icon.",
+                    "enum": [ "@mipmap/ic_launcher", "@drawable/custom_push_icon" ]
+                },
+                "24": {
+                    "_order": 41,
+                    "required": false,
+                    "type": "string",
+                    "_filepicker": true
+                },
+                "36": {
+                    "_order": 42,
+                    "required": false,
+                    "type": "string",
+                    "_filepicker": true
+                },
+                "48": {
+                    "_order": 43,
+                    "required": false,
+                    "type": "string",
+                    "_filepicker": true
+                },
+                "72": {
+                    "_order": 44,
+                    "required": false,
+                    "type": "string",
+                    "_filepicker": true
+                },
+                "96": {
+                    "_order": 45,
+                    "required": false,
+                    "type": "string",
+                    "_filepicker": true
+                }
+            }
+        }
+    }
 }

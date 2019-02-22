@@ -8,6 +8,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:3.1.4"
+        classpath "com.google.gms:google-services:4.2.0"
     }
     System.properties["com.android.build.gradle.overrideVersionCheck"] = "true"
 }
@@ -80,6 +81,17 @@ def moduleDependencies() {
     }
 }
 
+def moduleGradlePlugins() {
+    def f = new File("ForgeInspector/gradle.json")
+    if (f.exists()) {
+        def jsonSlurper = new JsonSlurper()
+        def config = jsonSlurper.parseText(f.text)
+        config["gradlePlugins"] ?: []
+    } else {
+        []
+    }
+}
+
 def moduleExcludeJars() {
     def f = new File("ForgeInspector/gradle.json")
     if (f.exists()) {
@@ -101,6 +113,7 @@ def moduleManifestPlaceholders() {
         [:]
     }
 }
+
 
 def moduleMinSdkVersion() {
     def f = new File("ForgeInspector/gradle.json")

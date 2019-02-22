@@ -5,14 +5,14 @@
             "server": "http://docker.trigger.io:1337/parse/",
             "applicationId": "45732VjSzMiN8HN90ztWcSeEl05T92XUrE70MJgI",
             "android": {
+                "googleServicesJson": "fixtures/parse/google-services.json",
+                "notificationIcon": "@drawable/custom_push_icon",
                 "24": "fixtures/parse/icons/24.png",
                 "36": "fixtures/parse/icons/36.png",
                 "48": "fixtures/parse/icons/48.png",
                 "72": "fixtures/parse/icons/72.png",
                 "96": "fixtures/parse/icons/96.png",
-                "notification_icon": "custom_push_icon",
-                "background-color": "#5555ff",
-                "GCMsenderID": "677378418801",
+                "backgroundColour": "#ff0000",
                 "updateNotifications": true,
                 "showNotificationsWhileVisible": true
             }
@@ -27,5 +27,8 @@
         "android": {
             "package_name": "io.trigger.forge.android.inspector"
         }
+    },
+    "flags": {
+        "android_uses_cleartext_traffic": true
     }
 }

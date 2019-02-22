@@ -1,12 +1,5 @@
 package io.trigger.forge.android.modules.parse;
 
-import io.trigger.forge.android.core.ForgeApp;
-import io.trigger.forge.android.core.ForgeLog;
-import io.trigger.forge.android.core.ForgeParam;
-import io.trigger.forge.android.core.ForgeTask;
-
-import java.util.List;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -14,6 +7,11 @@ import com.google.gson.JsonPrimitive;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.SaveCallback;
+import java.util.List;
+import io.trigger.forge.android.core.ForgeApp;
+import io.trigger.forge.android.core.ForgeLog;
+import io.trigger.forge.android.core.ForgeParam;
+import io.trigger.forge.android.core.ForgeTask;
 
 
 public class API {
