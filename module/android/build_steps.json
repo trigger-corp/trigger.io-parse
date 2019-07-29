@@ -8,35 +8,13 @@
     { "do": { "android_add_proguard_rule": "-keep class com.parse.** { *; }" } },
 
     { "do": { "android_add_gradle_plugin": {
-        "classpath": "com.google.gms:google-services:4.2.0",
+        "classpath": "com.google.gms:google-services:4.3.0",
         "name": "com.google.gms.google-services"
     } } },
 
-    { "do": { "android_add_gradle_dependency": "com.github.parse-community.Parse-SDK-Android:parse:1.18.5"  } },
-    { "do": { "android_add_gradle_dependency": "com.github.parse-community.Parse-SDK-Android:fcm:1.18.5"    } },
+    { "do": { "android_add_gradle_dependency": "com.github.parse-community.Parse-SDK-Android:parse:1.20.0"  } },
+    { "do": { "android_add_gradle_dependency": "com.github.parse-community.Parse-SDK-Android:fcm:1.20.0"    } },
 
-    {
-        "do": {
-            "android_add_to_application_manifest": {
-                "element": {
-                    "tag": "service",
-                    "attributes": {
-                        "android:name": "com.parse.fcm.ParseFirebaseInstanceIdService",
-                        "android:exported": "true"
-                    },
-                    "children": [{
-                        "tag": "intent-filter",
-                        "children": [{
-                            "tag": "action",
-                            "attributes": {
-                                "android:name": "com.google.firebase.INSTANCE_ID_EVENT"
-                            }
-                        }]
-                    }]
-                }
-            }
-        }
-    },
     {
         "do": {
             "android_add_to_application_manifest": {
