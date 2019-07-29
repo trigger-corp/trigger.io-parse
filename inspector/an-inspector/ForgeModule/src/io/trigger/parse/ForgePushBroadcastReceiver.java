@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import com.google.gson.JsonObject;
 import com.parse.ManifestInfo;
 import com.parse.ParseAnalytics;
