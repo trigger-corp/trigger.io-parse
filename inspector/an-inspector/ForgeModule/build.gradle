@@ -59,28 +59,23 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"], exclude: ["android-support-v4.jar",
-                                                                "forgecore.jar",
-                                                                "guava-13.0.1.jar",
-                                                                "metadata-extractor-2.6.4.jar",
-                                                                "org.apache.http.legacy.jar",
-                                                                "xmpcore.jar"])
+    implementation fileTree(dir: "libs", include: ["*.jar"], exclude: ["forgecore.jar",
+                                                                       "metadata-extractor-2.6.4.jar",
+                                                                       "xmpcore.jar"])
 
-    implementation "com.android.support:support-v4:" + rootProject.ext.supportLibraryVersion
-    implementation "com.android.support:appcompat-v7:" + rootProject.ext.supportLibraryVersion
-    implementation "com.google.guava:guava:13.0.1"
+    implementation rootProject.ext.dependencies
 
     crosswalkImplementation "org.xwalk:xwalk_core_library:" + rootProject.ext.crosswalkVersion
 
-    vanillaImplementation (name:'ForgeCore-vanilla-debug', ext:'aar')
-    crosswalkImplementation (name:'ForgeCore-crosswalk-debug', ext:'aar')
+    vanillaImplementation (name:"ForgeCore-vanilla-debug", ext:"aar")
+    crosswalkImplementation (name:"ForgeCore-crosswalk-debug", ext:"aar")
 
     implementation moduleDependencies()
 }
 
 repositories{
     flatDir {
-        dirs 'libs'
+        dirs "libs"
     }
 }
 
@@ -106,20 +101,5 @@ task updateModule (dependsOn: ":ForgeModule:assembleRelease") {
             into "../../../module/android"
         }
         println "\tUpdated module/android/ForgeModule-crosswalk-release.aar\n"
-    }
-}
-
-// Force Android support library version for Crosswalk builds
-configurations.all { conf ->
-    if (conf.name.contains("crosswalk")) {
-        println "Munging support library for: " + conf.name
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == "com.android.support") {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion rootProject.ext.supportLibraryVersion
-                }
-            }
-        }
     }
 }
