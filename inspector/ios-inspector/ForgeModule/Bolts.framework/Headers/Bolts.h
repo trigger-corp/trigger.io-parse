@@ -8,11 +8,11 @@
  *
  */
 
-#import <Bolts/BoltsVersion.h>
 #import <Bolts/BFCancellationToken.h>
 #import <Bolts/BFCancellationTokenRegistration.h>
 #import <Bolts/BFCancellationTokenSource.h>
 #import <Bolts/BFExecutor.h>
+#import <Bolts/BFGeneric.h>
 #import <Bolts/BFTask.h>
 #import <Bolts/BFTaskCompletionSource.h>
 
@@ -28,16 +28,12 @@
 #import <Bolts/BFWebViewAppLinkResolver.h>
 #endif
 
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Bolts : NSObject
-
-/*!
- Returns the version of the Bolts Framework as an NSString.
- @returns The NSString representation of the current version.
+/**
+ A string containing the version of the Bolts Framework used by the current application.
  */
-+ (NSString *)version;
-
-@end
+extern NSString *const BoltsFrameworkVersionString;
 
 NS_ASSUME_NONNULL_END
