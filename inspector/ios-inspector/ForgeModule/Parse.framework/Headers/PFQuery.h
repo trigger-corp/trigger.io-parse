@@ -239,7 +239,6 @@ typedef void (^PFQueryArrayResultBlock)(NSArray<PFGenericObject> *_Nullable obje
  */
 - (instancetype)whereKey:(NSString *)key containsAllObjectsInArray:(NSArray *)array;
 
-
 ///--------------------------------------
 #pragma mark - Adding String Constraints
 ///--------------------------------------

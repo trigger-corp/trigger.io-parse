@@ -22,9 +22,9 @@
 #import <Parse/PFConstants.h>
 #import <Parse/PFDecoder.h>
 #import <Parse/PFEncoder.h>
-#import <Parse/PFFile.h>
-#import <Parse/PFFile+Deprecated.h>
-#import <Parse/PFFile+Synchronous.h>
+#import <Parse/PFFileObject.h>
+#import <Parse/PFFileObject+Deprecated.h>
+#import <Parse/PFFileObject+Synchronous.h>
 #import <Parse/PFObject.h>
 #import <Parse/PFObject+Subclass.h>
 #import <Parse/PFObject+Synchronous.h>
@@ -62,6 +62,8 @@
 
 #elif TARGET_OS_TV
 
+#import <Parse/PFInstallation.h>
+#import <Parse/PFPush.h>
 #import <Parse/PFProduct.h>
 #import <Parse/PFPurchase.h>
 
@@ -100,17 +102,21 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The current configuration in use by the SDK. Returns nil if the SDK has not been initialized yet.
  */
-+ (nullable ParseClientConfiguration *)currentConfiguration;
+@property (nonatomic, nullable, readonly, class) ParseClientConfiguration *currentConfiguration;
 
 /**
  The current application id that was used to configure Parse framework.
  */
-+ (NSString *)getApplicationId;
+@property (nonatomic, nonnull, readonly, class) NSString *applicationId;
+
++ (NSString *)getApplicationId PARSE_DEPRECATED("Use applicationId property.");
 
 /**
  The current client key that was used to configure Parse framework.
  */
-+ (nullable NSString *)getClientKey;
+@property (nonatomic, nullable, readonly, class) NSString *clientKey;
+
++ (nullable NSString *)getClientKey PARSE_DEPRECATED("Use clientKey property.");
 
 ///--------------------------------------
 #pragma mark - Enabling Local Datastore
@@ -127,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return `YES` if Local Datastore is enabled, otherwise `NO`.
  */
-+ (BOOL)isLocalDatastoreEnabled PF_TV_UNAVAILABLE;
+@property (nonatomic, readonly, class) BOOL isLocalDatastoreEnabled PF_TV_UNAVAILABLE;
 
 ///--------------------------------------
 #pragma mark - Enabling Extensions Data Sharing
@@ -207,29 +213,16 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------------------------
 
 /**
- Sets the level of logging to display.
+ Gets or sets the level of logging to display.
 
  By default:
- - If running inside an app that was downloaded from iOS App Store - it is set to `PFLogLevelNone`
- - All other cases - it is set to `PFLogLevelWarning`
-
- @param logLevel Log level to set.
- @see PFLogLevel
- */
-+ (void)setLogLevel:(PFLogLevel)logLevel;
-
-/**
- Log level that will be displayed.
-
- By default:
-
  - If running inside an app that was downloaded from iOS App Store - it is set to `PFLogLevelNone`
  - All other cases - it is set to `PFLogLevelWarning`
 
  @return A `PFLogLevel` value.
  @see PFLogLevel
  */
-+ (PFLogLevel)logLevel;
+@property (nonatomic, readwrite, class) PFLogLevel logLevel;
 
 @end
 
