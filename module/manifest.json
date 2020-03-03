@@ -1,14 +1,14 @@
 {
-    "changes": "* Support Forge `v2.8.x`\n* Update Parse Android SDK to `1.20.0`\n* Update Parse iOS SDK to `1.17.2`",
+    "changes": "* Update module to use Bolts v1.10.0 which replaces usage of UIWebView with WKWebView",
     "dependencies": {
         "bolts": {
-            "minimum_version": "1.9.0",
-            "maximum_version": "1.9.0"
+            "minimum_version": "1.10.0",
+            "maximum_version": "1.10.0"
         }
     },
     "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-    "min_platform_version": "v2.8.0",
+    "min_platform_version": "v2.8.6",
     "namespace": "parse",
-    "platform_version": "v2.8.0",
-    "version": "3.1"
+    "platform_version": "v2.8.6",
+    "version": "3.2"
 }
