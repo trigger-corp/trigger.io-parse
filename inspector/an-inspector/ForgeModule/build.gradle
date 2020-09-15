@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -17,28 +17,18 @@ android {
         vanilla {
             dimension "default"
         }
-        crosswalk {
-            dimension "default"
-            minSdkVersion moduleMinSdkVersion() ?: 16
-            ndk {
-                abiFilters "armeabi-v7a", ""
-            }
-        }
     }
 
     sourceSets {
         main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-            jniLibs.srcDirs = ['libs']
-        }
-        crosswalk {
-            java.srcDirs = ["flavors/crosswalk/src"]
+            manifest.srcFile "AndroidManifest.xml"
+            java.srcDirs = ["src"]
+            resources.srcDirs = ["src"]
+            aidl.srcDirs = ["src"]
+            renderscript.srcDirs = ["src"]
+            res.srcDirs = ["res"]
+            assets.srcDirs = ["assets"]
+            jniLibs.srcDirs = ["libs"]
         }
         vanilla {
             java.srcDirs = ["flavors/vanilla/src"]
@@ -56,6 +46,8 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    useLibrary "org.apache.http.legacy"
 }
 
 dependencies {
@@ -65,12 +57,16 @@ dependencies {
 
     implementation rootProject.ext.dependencies
 
-    crosswalkImplementation "org.xwalk:xwalk_core_library:" + rootProject.ext.crosswalkVersion
-
     vanillaImplementation (name:"ForgeCore-vanilla-debug", ext:"aar")
-    crosswalkImplementation (name:"ForgeCore-crosswalk-debug", ext:"aar")
 
     implementation moduleDependencies()
+
+    fileTree(dir: "libs", include: "**/*-vanilla-release.aar")
+    .each { File file ->
+        def name = file.name.lastIndexOf(".").with { it != -1 ? file.name[0..<it] : file.name }
+        dependencies.add("vanillaImplementation", [name: name , ext: "aar"])
+        println "Added module aar for vanilla: $name"
+    }
 }
 
 repositories{
@@ -96,10 +92,5 @@ task updateModule (dependsOn: ":ForgeModule:assembleRelease") {
         }
         println "\tUpdated module/android/ForgeModule-vanilla-release.aar"
 
-        copy {
-            from "build/outputs/aar/ForgeModule-crosswalk-release.aar"
-            into "../../../module/android"
-        }
-        println "\tUpdated module/android/ForgeModule-crosswalk-release.aar\n"
     }
 }
