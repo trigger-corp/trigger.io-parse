@@ -13,6 +13,8 @@
 @implementation parse_EventListener
 
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
+    
 	[parse_Util setLaunchOptions:launchOptions];
 
 	Boolean delayRegistration = false;
@@ -51,9 +53,13 @@
 	[ForgeLog e:[NSString stringWithFormat:@"Failed to register for remote notifications: %@", [error description]]];
 }
 
-+ (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-	[parse_Util notifRecieved:userInfo];
++ (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+	[parse_Util didReceiveRemoteNotification:userInfo];
 	[parse_Util triggerMessagePushedEvent];
 	[ForgeLog i:@"Received push notification."];
+    
+    if (completionHandler) {
+        completionHandler(UIBackgroundFetchResultNoData);
+    }
 }
 @end

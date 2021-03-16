@@ -9,6 +9,9 @@
 #import "parse_Util.h"
 #import "Parse/Parse.h"
 
+#import <UserNotifications/UserNotifications.h>
+
+
 static NSDictionary* launchOptions;
 static NSDictionary* lastNotif;
 
@@ -19,32 +22,34 @@ static NSDictionary* lastNotif;
 }
 
 + (void)registerForNotifications:(UIApplication*)application server:(NSString*)server applicationId:(NSString*)applicationId clientKey:(NSString*)clientKey {
-  
-  if (!server) {
-    server = @"https://api.parse.com/1";
-  }
-  
-  [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-    configuration.applicationId = applicationId;
-    configuration.clientKey = clientKey;
-    configuration.server = server;
-  }]];
-  
-  if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound|UIUserNotificationTypeAlert|UIUserNotificationTypeBadge) categories:nil]];
-    [application registerForRemoteNotifications];
+    if (!server) {
+        server = @"https://api.parse.com/1";
+    }
     
-  } else {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
-  }
-  
-	if (launchOptions != NULL && [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil) {
-		[parse_Util notifRecieved:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
-		[parse_Util triggerMessagePushedEvent];
-	}
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = applicationId;
+        configuration.clientKey = clientKey;
+        configuration.server = server;
+    }]];
+    
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            });
+        } else {
+            [ForgeLog w:@"User did not grant notification permissions"];
+        }
+    }];
+    
+    if (launchOptions != NULL && [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey] != nil) {
+        [parse_Util didReceiveRemoteNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+        [parse_Util triggerMessagePushedEvent];
+    }
 }
 
-+ (void)notifRecieved:(NSDictionary*)userInfo {
++ (void)didReceiveRemoteNotification:(NSDictionary*)userInfo {
 	NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:[userInfo objectForKey:@"aps"]];
 	for (id key in [userInfo allKeys]) {
 		if (![key isEqualToString:@"aps"]) {

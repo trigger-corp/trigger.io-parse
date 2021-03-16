@@ -10,5 +10,6 @@
     { "do": { "add_ios_system_framework": "Security.framework" } },
     { "do": { "add_ios_system_framework": "Social.framework" } },
     { "do": { "add_ios_system_framework": "StoreKit.framework" } },
-    { "do": { "add_ios_system_framework": "SystemConfiguration.framework" } }
+    { "do": { "add_ios_system_framework": "SystemConfiguration.framework" } },
+    { "do": { "add_ios_system_framework": "UserNotifications.framework" } }
 ]

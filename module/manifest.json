@@ -1,5 +1,5 @@
 {
-    "changes": "* Update module to use Bolts v1.10.0 which replaces usage of UIWebView with WKWebView",
+    "changes": "* Fixed: didReceiveRemoteNotification not called on iOS",
     "dependencies": {
         "bolts": {
             "minimum_version": "1.10.0",
@@ -7,8 +7,8 @@
         }
     },
     "description": "Parse.com configuration to enable push notifications.\n\nThe parse module uses the Parse.com SDK to allow for native push notifications.",
-    "min_platform_version": "v2.8.6",
+    "min_platform_version": "v2.9.2",
     "namespace": "parse",
-    "platform_version": "v2.8.6",
-    "version": "3.2"
+    "platform_version": "v2.9.2",
+    "version": "3.3"
 }
